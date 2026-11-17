@@ -1,5 +1,5 @@
-export default function Container() {
+export default function Container({ children, className = "" }) {
   return (
-    <div></div>
+    <div className={`container ${className}`.trim()}>{children}</div>
   );
 }
