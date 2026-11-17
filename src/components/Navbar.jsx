@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <header className="site-header">
       <nav className="nav-wrap" aria-label="Main navigation">
-        <SiteLogo />
+        <SiteLogo className="header-wordmark" />
         <button
           className="menu-toggle"
           type="button"
@@ -17,14 +17,39 @@ export default function Navbar() {
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <span className="menu-close-icon" aria-hidden="true">×</span> : <span className="menu-list-icon" aria-hidden="true"><i /><i /><i /></span>}
+          {menuOpen ? (
+            <span className="menu-close-icon" aria-hidden="true">
+              ×
+            </span>
+          ) : (
+            <span className="menu-list-icon" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+          )}
         </button>
-        <div id="primary-navigation" className={`nav-links ${menuOpen ? "is-open" : ""}`}>
+        <div
+          id="primary-navigation"
+          className={`nav-links ${menuOpen ? "is-open" : ""}`}
+        >
           <SiteLogo className="mobile-menu-logo" />
-          <NavLink to="/" end onClick={() => setMenuOpen(false)}>Herbert</NavLink>
-          <NavLink to="/sources" onClick={() => setMenuOpen(false)}>Sources</NavLink>
-          <a href="/#team" onClick={() => setMenuOpen(false)}>Our Vision</a>
-          <Button className="mobile-nav-cta" href="/#top" onClick={() => setMenuOpen(false)}>Start your conversation with Herbert</Button>
+          <NavLink to="/" end onClick={() => setMenuOpen(false)}>
+            Herbert
+          </NavLink>
+          <NavLink to="/sources" onClick={() => setMenuOpen(false)}>
+            Sources
+          </NavLink>
+          <a href="/#team" onClick={() => setMenuOpen(false)}>
+            Our Vision
+          </a>
+          <Button
+            className="mobile-nav-cta"
+            href="/#top"
+            onClick={() => setMenuOpen(false)}
+          >
+            Start your conversation with Herbert
+          </Button>
         </div>
       </nav>
     </header>
