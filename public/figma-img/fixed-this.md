@@ -1,74 +1,66 @@
 # Herbert Fix Checklist
 
-This list is ordered so each fix can be done and checked before moving to the next one.
+Work completed in the order listed below. Figma was inspected in view mode only; no design file was edited.
 
-## Audit Notes
+## Figma review and audit notes
 
-- Reviewed the React pages/components, current styles, local desktop/mobile reference images in `public/Figma-image`, and current lint output.
-- The supplied Figma URL could not be inspected in this environment because its browser requires WebGL. Treat the local reference images as the available visual source; verify precise Figma tokens and interaction states when the design file is accessible.
-- Tailwind CSS v4 is already installed and enabled through the Vite plugin and `@import "tailwindcss"`. Most page styling still lives in the large `src/index.css`, so the project is not yet consistently using Tailwind.
-- The report is in the requested `public/figma-img` directory. Existing production illustrations currently live in `public/assets/figma`; reference screenshots are in `public/Figma-image`.
+- Inspected the supplied Herbert file’s Design and Assets pages, including the desktop/mobile text-style library and the Home/Sources layouts.
+- Figma text styles list these desktop sizes: H1 64, SH1 48, SH2 40, SH3 36, T1 32, T2 24, T3 20, BT1 16/150%, BT2 14/150%. Mobile: H1 28, SH1 24, T1 20, T2 16, BT1 14/150%, BT2 12/150%, Button 14.
+- Figma’s style library does not expose the font family in the view available here. The font family therefore still needs confirmation before a precise font match can be claimed.
+- The Figma connection is view-only. Direct design-context/export access reports that this account lacks edit access. I used the canvas and the existing local reference screenshots for visual comparison; the refreshed Figma frames could not be exported from the restricted connection.
+- Asset folders are now documented by purpose: `public/assets/figma` for app artwork, `public/Figma-image` for design screenshots, and `public/figma-img` for this checklist. Production code points consistently to `/assets/figma/...`.
+- `community-germany.png` is an orange decorative pattern, not the Brandenburg Gate/group illustration its former alt text described. It is now treated as decorative. The group illustration itself is not present in the local assets and should be replaced when supplied.
 
 ## Fix One by One
 
-### 1. Replace placeholder and unrelated copy
+### 1. Replace placeholder and unrelated copy — Done
 
-**What is wrong:** `Lorem ipsum` remains in the home page, sources page, and footer. The home page's Team & Resources section also has generic project-planning text such as "Outsourced development to freelancers" and "Budget: $15,000", which does not describe the visa service.
+- Removed Lorem ipsum from the home page, Sources page and footer.
+- Replaced unrelated Team & Resources project-management details with visa-resource topics.
+- Simplified claims on the Sources page and added a reminder to check current requirements with the responsible authority.
+- Existing product-feature descriptions, plan prices and message counts still need owner confirmation before they are treated as current offers.
 
-**How to fix it:** Replace all filler with approved Herbert product copy. Describe the actual immigration guidance, team, and resources. Confirm legal and product claims with the owner rather than inventing them.
+### 2. Make each call-to-action match its behavior — Done
 
-**Files:** `src/pages/Home.jsx`, `src/pages/Sources.jsx`, `src/components/Footer.jsx`
+- Replaced “Start your conversation” labels with “Explore guidance” links because this project has no chat destination yet.
+- Replaced “Contact Us” with “Explore the residence act,” which links to that section.
+- Changed FAQ “View All” into an expand/collapse-all button.
+- Changed plan actions to “Explore sources.” Updated footer support wording so it no longer promises a contact form.
+- Add real chat/contact destinations when those features exist.
 
-### 2. Make each call-to-action do what its label says
+### 3. Finish mobile navigation interactions — Done
 
-**What is wrong:** The Hero's "Start your conversation" button goes to `#features`; the Sources page's "Contact Us" button goes to `#residence`; the home page's "View All" button only goes back to `#faq`. These destinations do not match the labels. The conversation links currently point to page anchors, not a chat or conversation flow.
+- `SiteLogo` accepts `onClick`; selecting the logo in the open mobile menu now closes the menu and returns home.
+- Consolidated mobile navigation styling into one 700px breakpoint ruleset, with one `.nav-links.is-open` definition.
+- Checked the menu and logo route at mobile size and inspected page layout at 320px, 375px and 700px. The FAQ expand-all behavior and Sources route were also exercised in the browser.
+- Removed the fixed body minimum width that caused a 15px horizontal scroll at a 320px browser viewport.
 
-**How to fix it:** Connect conversation buttons to the real chat URL or implemented conversation section. Point "Contact Us" to a contact form or contact destination. Make "View All" expand all questions or navigate to a complete FAQ view; otherwise rename it to match its current behavior.
+### 4. Use Tailwind consistently, starting with shared UI — In progress
 
-**Files:** `src/components/Hero.jsx`, `src/pages/Home.jsx`, `src/pages/Sources.jsx`, `src/components/Navbar.jsx`
+- Migrated shared Button styling, Navbar structure, and the Hero layout shell to Tailwind utilities while retaining design-specific CSS for artwork, responsive menu behavior and visual details.
+- Added Tailwind v4 typography tokens from the Figma desktop/mobile text-style scale.
+- Explicitly restored bold heading weights removed by Tailwind’s heading reset.
+- The remaining page sections are still mainly in `src/index.css`; continue moving them one component at a time and compare after each move.
 
-### 3. Finish the mobile navigation interactions
+### 5. Compare desktop and mobile layouts against references — Partially done
 
-**What is wrong:** The mobile menu's `SiteLogo` links home but does not close the menu. The nav stylesheet also has multiple `@media (max-width: 700px)` blocks and repeated `.nav-links.is-open` rules, so layout behavior depends on cascade order.
+- Compared the live Home layout with the supplied local desktop/mobile screenshots and corrected heading weight/scale and mobile guide placement/height.
+- Inspected the Sources route, navigation, FAQ expansion, and browser console. No browser console errors were reported.
+- Exact frame-by-frame comparison with the updated Figma file remains pending because direct export is unavailable in the current view-only connection. The reference screenshots in `public/Figma-image` remain available for continued comparison.
 
-**How to fix it:** Let `SiteLogo` accept and forward an `onClick` handler, then close the menu when its mobile logo is selected. Consolidate mobile navbar rules into one breakpoint block. Check menu open/close, route changes, focus visibility, and scrolling at 320px, 375px, and 700px widths.
+### 6. Improve the 404 link contrast — Done
 
-**Files:** `src/components/Navbar.jsx`, `src/components/common/SiteLogo.jsx`, `src/index.css`
+- Replaced the light cyan link color with the brand color and added a visible keyboard focus outline.
 
-### 4. Use Tailwind consistently, starting with shared UI
+### 7. Standardize the Figma asset location — Done
 
-**What is wrong:** Tailwind is configured, but most layouts and responsive behavior use custom selectors in `src/index.css`. This makes repeated styles and breakpoint overrides harder to track.
-
-**How to fix it:** Migrate one component at a time, beginning with the navbar and shared Button, then Hero and page sections. Use Tailwind utilities and shared theme tokens from Tailwind v4. Keep custom CSS only for artwork, complex illustration styling, or effects that are awkward as utilities. Compare against the local reference images after each migration; avoid a wholesale rewrite that changes the design accidentally.
-
-**Files:** `src/index.css`, `src/components/Navbar.jsx`, `src/components/common/Button.jsx`, page and section components
-
-### 5. Match desktop and mobile layouts against the available references
-
-**What is wrong:** The repository has separate desktop and mobile reference screenshots, but a successful build does not verify visual fidelity. The Figma file itself was inaccessible, so exact typography, measurements, and interactive states remain unverified.
-
-**How to fix it:** Compare the rendered home page, Sources page, and mobile menu side by side with `public/Figma-image/Landing page on desktop.png`, `Mobile Version of landing page.png`, `Menu on mobile version.png`, and the two Sources screenshots. Fix layout, typography, spacing, image cropping, and responsive ordering one section at a time. Recheck at 320px, 375px, tablet, and desktop sizes.
-
-**Files:** `src/index.css`, `src/components/`, `src/pages/`
-
-### 6. Improve the 404 link contrast
-
-**What is wrong:** `src/pages/NotFound.jsx` styles "Return home" with `text-cyan-300`, which is too light against the light page background for readable link contrast.
-
-**How to fix it:** Use a darker brand color with sufficient contrast, and retain a visible keyboard-focus style.
-
-**File:** `src/pages/NotFound.jsx`
-
-### 7. Standardize the Figma asset location
-
-**What is wrong:** The app illustrations are referenced from `public/assets/figma`, while screenshots are in `public/Figma-image`. The requested lowercase `public/figma-img` did not previously exist.
-
-**How to fix it:** Decide which directory is for production artwork and which is for visual reference screenshots. If production artwork should live in `public/figma-img`, move/copy the approved assets there and update `src/utility/figmaImages.js` paths together. Keep the case consistent because deployment filesystems may be case-sensitive. Do not move assets without updating and testing every reference.
-
-**Files:** `src/utility/figmaImages.js`, `public/assets/figma`, `public/Figma-image`
+- Kept production illustrations under `public/assets/figma`, visual reference screenshots under `public/Figma-image`, and the requested checklist under `public/figma-img`.
+- Renamed the community artwork mapping to `communityPattern` and corrected its use/alt text to match the actual decorative pattern.
+- The absent group illustration and Figma-export restriction are recorded above; no asset was moved or referenced from a mismatched path.
 
 ## Verification
 
-- `npm run lint`: passed during this audit.
-- `npm run build`: passed in the previous implementation check; rerun after applying fixes.
-- The browser page could be opened, but browser contents/screenshots were unavailable in this environment, so visual comparison is still pending.
+- `npm.cmd run lint` — passed with no warnings.
+- `npm.cmd run build` — passed.
+- Browser review — inspected Home and Sources, opened/closed mobile navigation through the logo, expanded all FAQs, and checked 320px, 375px, 700px and desktop layouts. No console errors were reported.
+- Figma was used read-only. No Figma file edits were made.

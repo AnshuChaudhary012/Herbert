@@ -2,5 +2,5 @@
 export const figmaImages = {
   guideHello: "/assets/figma/guide-left.png",
   guide: "/assets/figma/guide-right.png",
-  community: "/assets/figma/community-germany.png",
+  communityPattern: "/assets/figma/community-germany.png",
 };

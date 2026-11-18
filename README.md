@@ -1,21 +1,33 @@
-# Studio North starter
+# Herbert
 
-A React 19 + Vite starter configured with Tailwind CSS 4, React Router, and GSAP.
+## links
+1. live link:- https://herbert-black.vercel.app
+2. repo link:- https://github.com/AnshuChaudhary012/Herbert
 
-Add `data-gsap` to an element to reveal it as it enters the viewport. The reveal
-respects the user's reduced-motion preference.
+## Description
 
-## Start developing
+Herbert is a responsive German immigration and visa guidance website inspired by the supplied Figma design. It helps visitors explore visa topics, understand document and interview preparation, review common immigration regulations, and navigate to relevant German and European information sources.
 
-```sh
-npm install
-npm run dev
-```
+The website includes a landing page with Herbert's main guidance areas, pricing-plan previews, an FAQ, and a dedicated sources page covering the German Residence Act, Schengen Borders Code, Employment Regulation, Visa Code, and Visa Handbook.
 
-## Other commands
+## Technologies
 
-```sh
-npm run build
-npm run preview
-npm run lint
-```
+- React
+- Vite
+- JavaScript (JSX)
+- Tailwind CSS
+- React Router
+- GSAP
+- SweetAlert2
+
+## Features
+
+- Responsive desktop, tablet, and mobile layouts
+- German visa and immigration guidance overview
+- Visa option, interview, and document checklist preparation topics
+- German language and CV/motivational-letter assistance information
+- Residence Act, Schengen, employment, visa code, and visa handbook resources
+- Friendly pricing-plan cards
+- Expandable FAQ section
+- Mobile navigation menu
+- Custom 404 page

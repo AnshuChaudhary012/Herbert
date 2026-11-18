@@ -19,15 +19,15 @@ function ServiceIcon({ type }) {
 
 export default function Hero() {
   return (
-    <section className="hero-section" id="top" aria-labelledby="hero-title">
+    <section className="hero-section relative flex flex-col items-center overflow-hidden px-6 pt-24 max-[700px]:px-[18px] max-[700px]:pt-16" id="top" aria-labelledby="hero-title">
       <div className="hero-lines" aria-hidden="true" />
-      <div className="hero-copy">
+      <div className="hero-copy relative z-10 w-full max-w-[810px] text-center max-[700px]:static">
         <span className="hello-tag">Hello!</span>
         <h1 id="hero-title">
           Navigating <span>German Bureaucracy</span> with ease
         </h1>
         <p>Herbert Visa: Your AI-powered assistant for German visa and immigration processes</p>
-        <Button href="#features">Start your conversation with Herbert</Button>
+        <Button href="#features">Explore Herbert’s guidance</Button>
       </div>
       <img className="hero-person hero-person--left" src={figmaImages.guideHello} alt="Herbert waving hello" />
       <img className="hero-person hero-person--right" src={figmaImages.guide} alt="Herbert, your German immigration guide" />

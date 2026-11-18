@@ -37,11 +37,11 @@ const questions = [
   ],
   [
     "How accurate is the information provided by Herbert?",
-    "Herbert bases its guidance on official German immigration resources. Always check the current requirements with the responsible authority.",
+    "Requirements can change and may depend on your situation. Use the sources page and confirm current details with the responsible authority.",
   ],
   [
     "How can I access Herbert?",
-    "Start a conversation with Herbert from this page to get help with your questions.",
+    "Browse the guidance and source information available on this website.",
   ],
   [
     "How can Herbert help me with my visa application?",
@@ -73,13 +73,13 @@ function CtaPanel() {
     <section className="cta-wrap" id="contact">
       <div className="cta-panel">
         <h2>
-          Need Help in Your Visa?
+          Need help with your visa?
           <br />
-          Ask Herbert Now!
+          Explore the resources.
         </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mattis sit phasellus mollis sit aliquam sit nullam.</p>
+        <p>Explore visa topics, review useful resources, and find answers to common questions about moving to Germany.</p>
         <div className="cta-actions">
-          <Button href="#top">Start your conversation</Button>
+          <Button href="#features">Explore guidance</Button>
           <Button href="/sources" variant="outline-light">
             Learn More
           </Button>
@@ -90,7 +90,11 @@ function CtaPanel() {
 }
 
 export default function Home() {
-  const [openQuestion, setOpenQuestion] = useState(0);
+  const [openQuestions, setOpenQuestions] = useState([0]);
+  const allQuestionsOpen = openQuestions.length === questions.length;
+  const toggleQuestion = (index) => setOpenQuestions((current) => current.includes(index)
+    ? current.filter((item) => item !== index)
+    : [...current, index]);
   return (
     <main>
       <Hero />
@@ -99,7 +103,7 @@ export default function Home() {
         <SectionHeading
           first="Herbert Main"
           accent="Features"
-          note="Lorem ipsum dolor sit amet consectetur. Tellus ipsum semper eget ornare justo netus proin lacus sed."
+          note="Explore practical topics that can help you prepare for a move to Germany."
         />
         <div className="feature-layout">
           <div className="feature-list">
@@ -128,7 +132,7 @@ export default function Home() {
         <SectionHeading
           first="Friendly Pricing"
           accent="Plans"
-          note="Lorem ipsum dolor sit amet consectetur adipiscing elit sed."
+          note="Explore the service options and confirm current pricing and availability before purchase."
         />
         <div className="plans-grid">
           {plans.map((plan) => (
@@ -146,7 +150,7 @@ export default function Home() {
               <p className="message-count">
                 <span>●</span> {plan.messages}
               </p>
-              <Button href="#contact">Upgrade to {plan.name}</Button>
+              <Button href="/sources">Explore sources</Button>
             </article>
           ))}
         </div>
@@ -155,19 +159,18 @@ export default function Home() {
         <div className="team-copy">
           <SectionHeading first="Team" accent="& Resources" />
           <p>
-            Lorem ipsum dolor sit amet consectetur. Tellus ipsum semper eget
-            ornare justo netus proin lacus sed vitae pellentesque cursus.
+            Find links to German immigration resources and explore the topics Herbert is designed to help explain.
           </p>
         </div>
         <div className="team-art">
-          <img src={figmaImages.community} alt="Illustration of the Brandenburg Gate and people in Berlin" />
+          <img src={figmaImages.communityPattern} alt="" aria-hidden="true" />
         </div>
         <div className="team-details">
           <p>Herbert guides you through:</p>
           <ul>
-            <li>Single entrepreneur (yourself)</li>
-            <li>Outsourced development to freelancers</li>
-            <li>Budget: $15,000</li>
+            <li>German residence and visa topics</li>
+            <li>Official information sources</li>
+            <li>Preparation resources for moving to Germany</li>
           </ul>
           <Button href="/sources">Learn more</Button>
         </div>
@@ -176,27 +179,27 @@ export default function Home() {
         <SectionHeading
           first="Frequently Asked"
           accent="Questions"
-          note="Help users find quick answers to common questions about Herbert, our AI-powered assistant for German visas and immigration processes."
+          note="Quick answers about Herbert and the guidance available on this site."
         />
         <div className="faq-grid">
           {questions.map(([question, answer], i) => (
             <article
-              className={"faq-item " + (openQuestion === i ? "is-open" : "")}
+              className={"faq-item " + (openQuestions.includes(i) ? "is-open" : "")}
               key={question}
             >
               <button
-                aria-expanded={openQuestion === i}
-                onClick={() => setOpenQuestion(openQuestion === i ? -1 : i)}
+                aria-expanded={openQuestions.includes(i)}
+                onClick={() => toggleQuestion(i)}
               >
                 <span>{question}</span>
-                <b>{openQuestion === i ? "−" : "+"}</b>
+                <b>{openQuestions.includes(i) ? "−" : "+"}</b>
               </button>
-              {openQuestion === i && <p>{answer}</p>}
+              {openQuestions.includes(i) && <p>{answer}</p>}
             </article>
           ))}
         </div>
-        <Button href="#faq" className="faq-more">
-          View All
+        <Button type="button" onClick={() => setOpenQuestions(allQuestionsOpen ? [] : questions.map((_, index) => index))} aria-expanded={allQuestionsOpen} className="faq-more">
+          {allQuestionsOpen ? "Collapse all questions" : "Expand all questions"}
         </Button>
       </section>
       <CtaPanel />

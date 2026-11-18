@@ -1,9 +1,9 @@
 import { Link } from "react-router";
 import logo from "../../assets/images/logo.png";
 
-export default function SiteLogo({ className = "" }) {
+export default function SiteLogo({ className = "", onClick }) {
   return (
-    <Link to="/" className={`site-logo ${className}`} aria-label="Herbert home">
+    <Link to="/" onClick={onClick} className={`site-logo ${className}`} aria-label="Herbert home">
       <img src={logo} alt="Herbert" />
     </Link>
   );

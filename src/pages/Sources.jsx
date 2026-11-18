@@ -30,11 +30,11 @@ function SourceCta() {
   return (
     <section className="cta-wrap" id="contact">
       <div className="cta-panel">
-        <h2>Need Help in Your Visa?<br />Ask Herbert Now!</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mattis sit phasellus mollis sit aliquam sit nullam.</p>
+        <h2>Need help with your visa?<br />Explore the resources.</h2>
+        <p>Explore the resources referenced on this page and review information that may help you research German visa topics.</p>
         <div className="cta-actions">
-          <Button href="/#top">Start your conversation</Button>
-          <Button href="/" variant="outline-light">Learn More</Button>
+          <Button href="/#features">Explore guidance</Button>
+          <Button href="/" variant="outline-light">Explore Herbert</Button>
         </div>
       </div>
     </section>
@@ -47,8 +47,8 @@ export default function Sources() {
       <section className="sources-hero section-space">
         <div className="hero-lines" aria-hidden="true" />
         <h1>The Foundations of <span>German<br />Immigration</span> Expertise</h1>
-        <p>Herbert, our AI chatbot, is built on a comprehensive understanding of German immigration law. To ensure accuracy and reliability, Herbert&apos;s knowledge base is derived from the following authoritative sources:</p>
-        <Button href="#residence">Contact Us</Button>
+        <p>This page introduces key German and European rules related to immigration. Use the links to review current requirements with the responsible authorities.</p>
+        <Button href="#residence">Explore the residence act</Button>
       </section>
 
       <section className="source-row section-space" id="residence">
@@ -58,22 +58,22 @@ export default function Sources() {
         <GuidePlaceholder />
         <div className="source-detail">
           <ul><li>Entry into Germany</li><li>Residence permits</li><li>Employment regulations for foreigners</li><li>Integration measures</li></ul>
-          <p>Herbert utilizes this act to provide precise information on legal residence requirements and pathways to living in Germany.</p>
+          <p>Review the current text of the Residence Act to learn about legal residence requirements and pathways for living in Germany.</p>
         </div>
       </section>
 
       <section className="source-row source-row--reverse section-space">
         <div className="source-copy">
-          <SourcesHeading text="As part of the Schengen Area, Germany adheres to this code for border control. Herbert&apos;s knowledge of the Schengener Grenzkodex covers:">Schengen Borders <span>Code</span></SourcesHeading>
+          <SourcesHeading text="As part of the Schengen Area, Germany follows this code for border control. The Schengener Grenzkodex covers:">Schengen Borders <span>Code</span></SourcesHeading>
           <ul><li>Short-term stay regulations</li><li>Entry requirements for the Schengen Area</li><li>Border crossing procedures</li></ul>
         </div>
         <div className="source-illustration source-building">
-          <img src={figmaImages.community} alt="Illustration of the Brandenburg Gate and people in Berlin" />
+          <img src={figmaImages.communityPattern} alt="" aria-hidden="true" />
         </div>
       </section>
 
       <section className="employment-section section-space">
-        <SourcesHeading text="This regulation details the conditions under which foreign nationals can work in Germany. Herbert&apos;s training in the Beschäftigungsverordnung allows for accurate guidance on:">Employment <span>Regulation</span></SourcesHeading>
+          <SourcesHeading text="The Employment Regulation describes conditions for foreign nationals working in Germany. Review the current regulation for details on:">Employment <span>Regulation</span></SourcesHeading>
         <div className="employment-content">
           <ul className="regulation-list">{regulations.slice(0, 2).map((item, i) => <li key={item}><b>{i + 1}</b>{item}</li>)}</ul>
           <div className="source-illustration employment-art">
@@ -97,20 +97,20 @@ export default function Sources() {
           ))}
         </div>
         <div className="source-copy">
-          <SourcesHeading text="This code standardizes procedures for short-stay visas in the Schengen Area. Herbert&apos;s understanding of the Visa-Kodex ensures accurate information on:">Visa <span>Code</span></SourcesHeading>
-          <Button href="#visa-handbook">Learn More</Button>
+          <SourcesHeading text="The Visa Code sets common procedures for short-stay visa applications in the Schengen Area. It covers topics such as:">Visa <span>Code</span></SourcesHeading>
+          <Button href="#visa-handbook">View visa handbook</Button>
         </div>
       </section>
 
       <section className="source-row section-space" id="visa-handbook">
         <div className="source-copy">
-          <SourcesHeading text="The Visumhandbuch is a comprehensive internal document used by the Federal Foreign Office and German embassies. Spanning approximately 1,000 pages, it provides detailed guidelines on visa issuance. Herbert&apos;s training on this resource offers:">Visa <span>Handbook</span></SourcesHeading>
+          <SourcesHeading text="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:">Visa <span>Handbook</span></SourcesHeading>
           <ul><li>In-depth insights into visa application assessment</li><li>Clarification on complex cases and exceptions</li><li>Nuanced interpretations of immigration laws and regulations</li></ul>
         </div>
         <GuidePlaceholder />
       </section>
 
-      <p className="sources-note">By basing its knowledge on these official sources, Herbert provides you with accurate, up-to-date, &amp; reliable information on German immigration processes. Our commitment to using these authoritative resources ensures that you receive guidance aligned with current German immigration laws &amp; practices.</p>
+      <p className="sources-note">Immigration requirements can change and depend on individual circumstances. Always verify details with the relevant German authority or embassy before acting.</p>
       <SourceCta />
     </main>
   );

@@ -6,7 +6,7 @@
 
 **Primary Figma Design:**
 
-https://www.figma.com/design/SAc7cJNhfmUt57GCu85NJG/Herbert?node-id=0-1
+https://www.figma.com/design/pPQiLzwnus2s8Q8ZeSLIzy/Herbert--Copy---Copy---Copy-?node-id=725-3950&t=3INGDl8NryK1KBFu-0
 
 ### Instructions
 
