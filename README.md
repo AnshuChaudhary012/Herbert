@@ -3,6 +3,7 @@
 ## links
 1. live link:- https://herbert-black.vercel.app
 2. repo link:- https://github.com/AnshuChaudhary012/Herbert
+3. Testing link :- https://www.figma.com/design/y2uq4gXj3f5bf0VjZECiIa/Herbert--testing-?node-id=0-1&p=f&t=K41155lF5d6eE9rD-0
 
 ## Description
 
