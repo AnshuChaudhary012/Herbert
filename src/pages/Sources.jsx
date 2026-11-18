@@ -8,6 +8,16 @@ const regulations = [
   "Specific provisions for various professional groups",
 ];
 
+function TopicIcon({ type }) {
+  if (type === "process") {
+    return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="2" /><path d="m12 7 1.5 3.5L17 12l-3.5 1.5L12 17l-1.5-3.5L7 12l3.5-1.5L12 7Z" fill="currentColor" /></svg>;
+  }
+  if (type === "documents") {
+    return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M14 3v6h6M8 14h8M8 17h6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>;
+  }
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M12 6v6l4 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>;
+}
+
 function SourcesHeading({ children, text }) {
   return (
     <div className="sources-heading">
@@ -20,7 +30,6 @@ function SourcesHeading({ children, text }) {
 function GuidePlaceholder() {
   return (
     <div className="source-illustration source-person">
-      <span className="hello-tag">Hello!</span>
       <img src={figmaImages.guideHello} alt="Herbert waving hello" />
     </div>
   );
@@ -30,11 +39,11 @@ function SourceCta() {
   return (
     <section className="cta-wrap" id="contact">
       <div className="cta-panel">
-        <h2>Need help with your visa?<br />Explore the resources.</h2>
-        <p>Explore the resources referenced on this page and review information that may help you research German visa topics.</p>
+        <h2>Need Help in Your Visa?<br />Ask Herbert Now!</h2>
+        <p>Explore visa topics, review useful resources, and get guidance as you prepare to move to Germany.</p>
         <div className="cta-actions">
-          <Button href="/#features">Explore guidance</Button>
-          <Button href="/" variant="outline-light">Explore Herbert</Button>
+          <Button href="/#features">Start your conversation</Button>
+          <Button href="/" variant="outline-light">Learn More</Button>
         </div>
       </div>
     </section>
@@ -48,7 +57,7 @@ export default function Sources() {
         <div className="hero-lines" aria-hidden="true" />
         <h1>The Foundations of <span>German<br />Immigration</span> Expertise</h1>
         <p>This page introduces key German and European rules related to immigration. Use the links to review current requirements with the responsible authorities.</p>
-        <Button href="#residence">Explore the residence act</Button>
+        <Button href="#contact">Contact Us</Button>
       </section>
 
       <section className="source-row section-space" id="residence">
@@ -68,7 +77,7 @@ export default function Sources() {
           <ul><li>Short-term stay regulations</li><li>Entry requirements for the Schengen Area</li><li>Border crossing procedures</li></ul>
         </div>
         <div className="source-illustration source-building">
-          <img src={figmaImages.communityPattern} alt="" aria-hidden="true" />
+          <img src={figmaImages.sourcesGateGroups} alt="Graduates, a family and medical professionals outside the Brandenburg Gate" />
         </div>
       </section>
 
@@ -77,7 +86,7 @@ export default function Sources() {
         <div className="employment-content">
           <ul className="regulation-list">{regulations.slice(0, 2).map((item, i) => <li key={item}><b>{i + 1}</b>{item}</li>)}</ul>
           <div className="source-illustration employment-art">
-            <img src={figmaImages.guide} alt="Herbert, your German immigration guide" />
+            <img src={figmaImages.sourcesEmploymentSignpost} alt="Herbert beside a signpost pointing to work and tourism in Germany" />
           </div>
           <ul className="regulation-list">{regulations.slice(2).map((item, i) => <li key={item}><b>{i + 3}</b>{item}</li>)}</ul>
         </div>
@@ -91,7 +100,7 @@ export default function Sources() {
             "Visa fees and processing times",
           ].map((title, index) => (
             <article key={title}>
-              <span className="mini-icon" aria-hidden="true">{["⚙", "▤", "◷"][index]}</span>
+            <span className="mini-icon" aria-hidden="true"><TopicIcon type={["process", "documents", "time"][index]} /></span>
               <p>{title}</p>
             </article>
           ))}

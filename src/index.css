@@ -713,6 +713,16 @@ a {
   color: white;
   text-align: center;
 }
+.cta-actions .button:not(.button--outline-light) {
+  border-color: #fff;
+  background: #fff;
+  color: #ff9148;
+}
+.cta-actions .button:not(.button--outline-light):hover {
+  border-color: #fff;
+  background: #fff7f1;
+  color: #e56d3b;
+}
 .cta-panel h2 {
   margin: 0 0 15px;
   font-size: 36px;
@@ -1409,8 +1419,8 @@ a {
   display: block;
   width: auto;
   height: auto;
-  max-width: 180px;
-  max-height: 48px;
+  max-width: 220px;
+  max-height: 54px;
   object-fit: contain;
 }
 .site-logo__copy {
@@ -1529,13 +1539,13 @@ a {
 .feature-art--image {
   display: grid;
   place-items: center;
-  min-height: 400px;
+  min-height: 500px;
   background: none;
 }
 .feature-art--image img {
   display: block;
-  width: min(100%, 340px);
-  height: 400px;
+  width: min(100%, 390px);
+  height: 500px;
   object-fit: contain;
   object-position: center bottom;
 }
@@ -1554,14 +1564,20 @@ a {
 .team-art {
   grid-column: 2;
   grid-row: 1 / 3;
-  min-height: 430px;
-  border-radius: 48% 52% 42% 45%;
-  background: #ffe2c9;
+  min-height: 460px;
+  border-radius: 0;
+  background: transparent;
+}
+.team-art__picture {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
 }
 .team-art img {
   width: 100%;
   height: 100%;
-  max-height: 460px;
+  max-height: 500px;
   object-fit: contain;
 }
 .team-details {
@@ -1593,8 +1609,8 @@ a {
 }
 .source-building {
   overflow: hidden;
-  border-radius: 48% 52% 40% 38%;
-  background: #ffd9b4;
+  border-radius: 0;
+  background: transparent;
 }
 .source-building img {
   display: block;
@@ -1608,8 +1624,8 @@ a {
   border-radius: 48% 48% 8% 8%;
 }
 .employment-art img {
-  width: min(100%, 300px);
-  height: 340px;
+  width: min(100%, 330px);
+  height: 430px;
   object-fit: contain;
   object-position: center bottom;
 }
@@ -1624,18 +1640,16 @@ a {
   font-size: 14px;
   font-weight: 700;
 }
+.social-icons svg {
+  width: 17px;
+  height: 17px;
+}
 .footer-wordmark {
   align-items: center;
 }
 .footer-wordmark > img {
-  width: 40px;
-  height: 46px;
-}
-.footer-wordmark .site-logo__name {
-  font-size: 45px;
-}
-.footer-wordmark .site-logo__tagline {
-  font-size: 10px;
+  max-width: 360px;
+  max-height: 64px;
 }
 .footer-description {
   margin: 18px 0 5px !important;
@@ -1703,12 +1717,6 @@ a {
   }
   .hero-section {
     min-height: 1246px;
-  }
-  .hero-copy > .hello-tag {
-    position: absolute;
-    top: 360px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-5deg);
   }
   .hero-copy h1 {
     max-width: 370px;
@@ -1785,6 +1793,9 @@ a {
   }
   .feature-art--image img {
     height: 350px;
+  }
+  .feature-art--image {
+    min-height: 350px;
   }
   .feature-layout .feature-list {
     grid-template-columns: 1fr 1fr;
@@ -1872,8 +1883,14 @@ a {
     grid-row: 2;
     min-height: 300px;
   }
+  .team-art__picture,
   .team-art img {
     min-height: 300px;
+  }
+  .team-art img {
+    width: 78%;
+    max-height: 320px;
+    object-fit: contain;
   }
   .team-details {
     grid-column: 1;
@@ -1885,7 +1902,15 @@ a {
   }
   .faq-grid {
     margin: 30px auto 24px;
+    display: flex;
+    flex-direction: column;
   }
+  .faq-item:nth-child(1) { order: 0; }
+  .faq-item:nth-child(3) { order: 1; }
+  .faq-item:nth-child(5) { order: 2; }
+  .faq-item:nth-child(2) { order: 3; }
+  .faq-item:nth-child(4) { order: 4; }
+  .faq-item:nth-child(6) { order: 5; }
   .faq-item button {
     padding: 15px 14px;
     font-size: 14px;
@@ -1927,14 +1952,8 @@ a {
     grid-column: 1 / -1;
   }
   .footer-wordmark > img {
-    width: 32px;
-    height: 38px;
-  }
-  .footer-wordmark .site-logo__name {
-    font-size: 34px;
-  }
-  .footer-wordmark .site-logo__tagline {
-    font-size: 8px;
+    max-width: 290px;
+    max-height: 52px;
   }
   .footer-description {
     margin-top: 14px !important;
@@ -2099,7 +2118,7 @@ a {
 
 /* Single mobile navigation ruleset for the 700px breakpoint. */
 @media (max-width: 700px) {
-  .header-wordmark > img { max-width: 146px; max-height: 38px; }
+  .header-wordmark > img { max-width: 176px; max-height: 42px; }
   .menu-toggle {
     z-index: 22;
     display: grid;

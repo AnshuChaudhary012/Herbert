@@ -45,10 +45,10 @@ export default function Navbar() {
           </a>
           <Button
             className="mobile-nav-cta"
-            href="/#features"
+            href="/#contact"
             onClick={() => setMenuOpen(false)}
           >
-            Explore Herbert’s guidance
+            Start your conversation with Herbert
           </Button>
         </div>
       </nav>

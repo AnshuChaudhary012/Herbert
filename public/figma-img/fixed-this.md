@@ -1,66 +1,32 @@
-# Herbert Fix Checklist
+# Herbert Visual Review Fixes
 
-Work completed in the order listed below. Figma was inspected in view mode only; no design file was edited.
+## Design references
 
-## Figma review and audit notes
+- Figma review file: [Herbert testing](https://www.figma.com/design/y2uq4gXj3f5bf0VjZECiIa/Herbert--testing-?node-id=0-1)
+- Local desktop and mobile comparisons: `public/Figma-image/`
+- Existing Figma character and logo images: `public/assets/figma/` and `src/assets/images/logo.png`
+- The logo file already contains the Germany mark, Herbert wordmark and tagline. Keep it as one image; do not add separate logo text.
 
-- Inspected the supplied Herbert file’s Design and Assets pages, including the desktop/mobile text-style library and the Home/Sources layouts.
-- Figma text styles list these desktop sizes: H1 64, SH1 48, SH2 40, SH3 36, T1 32, T2 24, T3 20, BT1 16/150%, BT2 14/150%. Mobile: H1 28, SH1 24, T1 20, T2 16, BT1 14/150%, BT2 12/150%, Button 14.
-- Figma’s style library does not expose the font family in the view available here. The font family therefore still needs confirmation before a precise font match can be claimed.
-- The Figma connection is view-only. Direct design-context/export access reports that this account lacks edit access. I used the canvas and the existing local reference screenshots for visual comparison; the refreshed Figma frames could not be exported from the restricted connection.
-- Asset folders are now documented by purpose: `public/assets/figma` for app artwork, `public/Figma-image` for design screenshots, and `public/figma-img` for this checklist. Production code points consistently to `/assets/figma/...`.
-- `community-germany.png` is an orange decorative pattern, not the Brandenburg Gate/group illustration its former alt text described. It is now treated as decorative. The group illustration itself is not present in the local assets and should be replaced when supplied.
+## Review comments implemented
 
-## Fix One by One
+1. **Hero** — Removed the extra HTML “Hello!” badge because the supplied waving Herbert image already includes it. Updated the hero and mobile menu CTA labels to match the design.
+2. **Feature section** — Reordered items to 1) visa choice, 2) document checklist, 3) CV / motivation letter, 4) interview preparation, 5) German practice and 6) settling in. Added a crop of the full work/tourism signpost illustration from the Figma reference screenshot.
+3. **Plans** — Updated the buttons to “Upgrade to Basic”, “Upgrade to Standard” and “Upgrade to Premium”. The project still has no payment or subscription flow; the buttons currently lead to Sources.
+4. **Team & Resources** — Added a desktop group illustration crop from the reference and use the supplied waving Herbert image on mobile. Restored the three text bullets visible in the Figma frame.
+5. **FAQ** — Reordered the cards on mobile to match the reference and renamed the expand-all control “View All”. The existing expand/collapse behavior remains.
+6. **Final CTA** — Updated the heading and button labels. The first button now uses the white fill and orange label shown in Figma; the second remains outlined.
+7. **Footer** — Replaced the extra Explore links with the Follow Us heading and three circular brand icons. Kept the project’s full-logo image as one image.
+8. **Sources page** — Removed the second “Hello!” overlay, replaced the mismatched decorative pattern with crops of the gate/group and employment illustrations, and updated the hero link to “Contact Us”. Added a Vercel SPA rewrite so direct `/sources` requests resolve to the React app after deployment.
 
-### 1. Replace placeholder and unrelated copy — Done
+## Assets and constraints
 
-- Removed Lorem ipsum from the home page, Sources page and footer.
-- Replaced unrelated Team & Resources project-management details with visa-resource topics.
-- Simplified claims on the Sources page and added a reminder to check current requirements with the responsible authority.
-- Existing product-feature descriptions, plan prices and message counts still need owner confirmation before they are treated as current offers.
+The project’s local Figma screenshots contain the reference artwork as flattened images. The new group and signpost PNGs in `public/assets/figma/` are high-resolution crops from those screenshots, not original transparent exports. Figma MCP export calls were unavailable because the connected Starter plan had reached its daily tool-call limit. Replace the crops with original transparent Figma exports if those become available.
 
-### 2. Make each call-to-action match its behavior — Done
+The Figma style library shows desktop and mobile type sizes, but did not expose the exact font family in the available read-only view. The current Arial stack is unchanged until the correct family can be confirmed; exact font matching is still pending.
 
-- Replaced “Start your conversation” labels with “Explore guidance” links because this project has no chat destination yet.
-- Replaced “Contact Us” with “Explore the residence act,” which links to that section.
-- Changed FAQ “View All” into an expand/collapse-all button.
-- Changed plan actions to “Explore sources.” Updated footer support wording so it no longer promises a contact form.
-- Add real chat/contact destinations when those features exist.
+## Checks completed
 
-### 3. Finish mobile navigation interactions — Done
-
-- `SiteLogo` accepts `onClick`; selecting the logo in the open mobile menu now closes the menu and returns home.
-- Consolidated mobile navigation styling into one 700px breakpoint ruleset, with one `.nav-links.is-open` definition.
-- Checked the menu and logo route at mobile size and inspected page layout at 320px, 375px and 700px. The FAQ expand-all behavior and Sources route were also exercised in the browser.
-- Removed the fixed body minimum width that caused a 15px horizontal scroll at a 320px browser viewport.
-
-### 4. Use Tailwind consistently, starting with shared UI — In progress
-
-- Migrated shared Button styling, Navbar structure, and the Hero layout shell to Tailwind utilities while retaining design-specific CSS for artwork, responsive menu behavior and visual details.
-- Added Tailwind v4 typography tokens from the Figma desktop/mobile text-style scale.
-- Explicitly restored bold heading weights removed by Tailwind’s heading reset.
-- The remaining page sections are still mainly in `src/index.css`; continue moving them one component at a time and compare after each move.
-
-### 5. Compare desktop and mobile layouts against references — Partially done
-
-- Compared the live Home layout with the supplied local desktop/mobile screenshots and corrected heading weight/scale and mobile guide placement/height.
-- Inspected the Sources route, navigation, FAQ expansion, and browser console. No browser console errors were reported.
-- Exact frame-by-frame comparison with the updated Figma file remains pending because direct export is unavailable in the current view-only connection. The reference screenshots in `public/Figma-image` remain available for continued comparison.
-
-### 6. Improve the 404 link contrast — Done
-
-- Replaced the light cyan link color with the brand color and added a visible keyboard focus outline.
-
-### 7. Standardize the Figma asset location — Done
-
-- Kept production illustrations under `public/assets/figma`, visual reference screenshots under `public/Figma-image`, and the requested checklist under `public/figma-img`.
-- Renamed the community artwork mapping to `communityPattern` and corrected its use/alt text to match the actual decorative pattern.
-- The absent group illustration and Figma-export restriction are recorded above; no asset was moved or referenced from a mismatched path.
-
-## Verification
-
-- `npm.cmd run lint` — passed with no warnings.
 - `npm.cmd run build` — passed.
-- Browser review — inspected Home and Sources, opened/closed mobile navigation through the logo, expanded all FAQs, and checked 320px, 375px, 700px and desktop layouts. No console errors were reported.
-- Figma was used read-only. No Figma file edits were made.
+- `npm.cmd run lint` — passed.
+- Opened the local home page and `/sources` route in a browser. The route rendered in the local Vite preview.
+- The Vercel rewrite has not been deployed yet. The live site will continue to use its current deployment until the project is redeployed.

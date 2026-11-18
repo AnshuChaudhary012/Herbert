@@ -4,10 +4,10 @@ import Button from "../components/common/Button";
 import { figmaImages } from "../utility/figmaImages";
 const features = [
   "Find out which visa you might want",
-  "Help prepare for your visa interview",
   "Receive a checklist with all necessary documents",
-  "Practice your German interactively with Herbert",
   "Write your CV / Motivation Letter with Herbert",
+  "Help prepare for your visa interview",
+  "Practice your German interactively with Herbert",
   "Let Herbert guide you through your fresh start in Germany once you get there.",
 ];
 const plans = [
@@ -73,13 +73,13 @@ function CtaPanel() {
     <section className="cta-wrap" id="contact">
       <div className="cta-panel">
         <h2>
-          Need help with your visa?
+          Need Help in Your Visa?
           <br />
-          Explore the resources.
+          Ask Herbert Now!
         </h2>
-        <p>Explore visa topics, review useful resources, and find answers to common questions about moving to Germany.</p>
+        <p>Explore visa topics, review useful resources, and get guidance as you prepare to move to Germany.</p>
         <div className="cta-actions">
-          <Button href="#features">Explore guidance</Button>
+          <Button href="#features">Start your conversation</Button>
           <Button href="/sources" variant="outline-light">
             Learn More
           </Button>
@@ -115,7 +115,7 @@ export default function Home() {
             ))}
           </div>
           <div className="feature-art feature-art--image">
-            <img src={figmaImages.guide} alt="Herbert helping people prepare for their move" />
+            <img src={figmaImages.featureSignpost} alt="Herbert beside a signpost pointing to work and tourism in Germany" />
           </div>
           <div className="feature-list">
             {features.slice(3).map((item, i) => (
@@ -150,7 +150,7 @@ export default function Home() {
               <p className="message-count">
                 <span>●</span> {plan.messages}
               </p>
-              <Button href="/sources">Explore sources</Button>
+              <Button href="/sources">Upgrade to {plan.name}</Button>
             </article>
           ))}
         </div>
@@ -159,18 +159,20 @@ export default function Home() {
         <div className="team-copy">
           <SectionHeading first="Team" accent="& Resources" />
           <p>
-            Find links to German immigration resources and explore the topics Herbert is designed to help explain.
+            Herbert brings together practical visa guidance, helpful resources, and clear next steps for people planning a new life and career in Germany.
           </p>
         </div>
         <div className="team-art">
-          <img src={figmaImages.communityPattern} alt="" aria-hidden="true" />
+          <picture className="team-art__picture">
+            <source media="(max-width: 700px)" srcSet={figmaImages.teamMobile} />
+            <img src={figmaImages.teamGroups} alt="Graduates, a family and medical professionals in front of the Brandenburg Gate" />
+          </picture>
         </div>
         <div className="team-details">
-          <p>Herbert guides you through:</p>
           <ul>
-            <li>German residence and visa topics</li>
-            <li>Official information sources</li>
-            <li>Preparation resources for moving to Germany</li>
+            <li>Single entrepreneur (yourself)</li>
+            <li>Outsourced development to freelancers</li>
+            <li>Budget: $15,000</li>
           </ul>
           <Button href="/sources">Learn more</Button>
         </div>
@@ -199,7 +201,7 @@ export default function Home() {
           ))}
         </div>
         <Button type="button" onClick={() => setOpenQuestions(allQuestionsOpen ? [] : questions.map((_, index) => index))} aria-expanded={allQuestionsOpen} className="faq-more">
-          {allQuestionsOpen ? "Collapse all questions" : "Expand all questions"}
+          View All
         </Button>
       </section>
       <CtaPanel />
