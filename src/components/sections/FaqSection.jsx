@@ -5,12 +5,22 @@ import { homePageData } from "../../utility/helpers";
 
 function FaqItem({ question, answer, isOpen, onToggle }) {
   return (
-    <article className={`faq-item ${isOpen ? "is-open" : ""}`}>
-      <button aria-expanded={isOpen} onClick={onToggle}>
+    <article
+      className={`self-start rounded-[5px] border border-[#e7e2de] bg-white shadow-[0_2px_7px_rgba(38,28,20,0.03)] ${isOpen ? "shadow-[0_4px_18px_rgba(38,28,20,0.09)]" : ""}`}
+    >
+      <button
+        className="flex w-full items-center justify-between gap-3 border-0 bg-transparent px-4.5 py-3.75 text-left text-[13px] text-[#27221e] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-ink max-md:px-3.5 max-md:text-sm"
+        aria-expanded={isOpen}
+        onClick={onToggle}
+      >
         <span>{question}</span>
-        <b>{isOpen ? "\u2212" : "+"}</b>
+        <b className="text-lg font-normal">{isOpen ? "\u2212" : "+"}</b>
       </button>
-      {isOpen && <p>{answer}</p>}
+      {isOpen && (
+        <p className="m-0 px-4.5 pb-4.25 text-xs leading-[1.6] text-[#6a625d] max-md:px-3.5 max-md:pb-3.75 max-md:text-[13px]">
+          {answer}
+        </p>
+      )}
     </article>
   );
 }
@@ -19,6 +29,12 @@ export default function FaqSection() {
   const { faq } = homePageData;
   const [openQuestions, setOpenQuestions] = useState([0]);
   const allQuestionsOpen = openQuestions.length === faq.items.length;
+  const itemsByColumn = faq.items
+    .map((item, index) => ({ item, index }))
+    .sort(
+      (first, second) =>
+        (first.index % 2) - (second.index % 2) || first.index - second.index,
+    );
   const toggleQuestion = (index) =>
     setOpenQuestions((current) =>
       current.includes(index)
@@ -27,14 +43,17 @@ export default function FaqSection() {
     );
 
   return (
-    <section className="faq-section section-space" id="faq">
+    <section
+      className="mx-auto max-w-295 px-6 py-22 max-md:pb-12 max-md:pt-16"
+      id="faq"
+    >
       <SectionHeading
         first={faq.heading[0]}
         accent={faq.heading[1]}
         note={faq.note}
       />
-      <div className="faq-grid">
-        {faq.items.map(([question, answer], index) => (
+      <div className="mx-auto my-11 grid grid-flow-col grid-cols-2 grid-rows-3 gap-x-5.5 gap-y-3 max-md:my-7.5 max-md:mb-6 max-md:flex max-md:flex-col">
+        {itemsByColumn.map(({ item: [question, answer], index }) => (
           <FaqItem
             key={question}
             question={question}
@@ -52,7 +71,7 @@ export default function FaqSection() {
           )
         }
         aria-expanded={allQuestionsOpen}
-        className="faq-more"
+        className="mx-auto flex w-max max-md:min-h-11 max-md:text-[13px]"
       >
         {faq.viewAll}
       </Button>

@@ -14,7 +14,7 @@ export const homePageData = {
   },
   features: {
     heading: ["Herbert Main", "Features"],
-    note: "Explore practical topics that can help you prepare for a move to Germany.",
+    note: "Lorem ipsum dolor sit amet consectetur. Tellus ipsum semper eget ornare justo netus proin lacus sed.",
     items: [
       "Find out which visa you might want",
       "Receive a checklist with all necessary documents",
@@ -26,22 +26,22 @@ export const homePageData = {
   },
   plans: {
     heading: ["Friendly Pricing", "Plans"],
-    note: "Explore the service options and confirm current pricing and availability before purchase.",
+    note: "Lorem ipsum dolor sit amet consectetur adipisicing eli mattis sit phasellus mollis sit aliquam sit nullam.",
     includedLabel: "What’s included?",
     items: [
-      { price: "$5/mo", name: "Basic", text: "Ideal for newcomers! Get quick and clear answers to your basic questions about German immigration policies.", messages: "10 Messages" },
-      { price: "$10/mo", name: "Standard", text: "The go-to resource for thorough visa application preparation. Ensure you have all the necessary information and answers.", messages: "25 Messages" },
-      { price: "$20/mo", name: "Premium", text: "Have Herbert accompany you throughout your entire visa application journey, with extensive message credits.", messages: "50 Messages" },
+      { price: "$5/mo", name: "Basic", text: "Ideal for newcomers! Get quick and reliable answers to your basic questions about German immigration policies. Perfect for a brief introduction without long-term commitment.", messages: "10 messages" },
+      { price: "$10/mo", name: "Standard", text: "Your go-to resource for thorough visa application preparation. Ensure you have all the necessary information and answers to confidently navigate the German visa process.", messages: "25 messages" },
+      { price: "$20/mo", name: "Premium", text: "Have Herbert accompany you throughout your entire visa application journey. With extensive message credits, you can ask questions whenever you need, ensuring a smooth and informed experience.", messages: "50 messages" },
     ],
   },
   team: {
     heading: ["Team", "& Resources"],
-    description: "Herbert brings together practical visa guidance, helpful resources, and clear next steps for people planning a new life and career in Germany.",
+    description: "Lorem ipsum dolor sit amet consectetur. Tellus ipsum semper eget ornare justo netus proin lacus sed. Vulputate eget lectus vitae iaculis rhoncus.",
     details: ["Single entrepreneur (yourself)", "Outsourced development to freelancers", "Budget: $15,000"],
   },
   faq: {
     heading: ["Frequently Asked", "Questions"],
-    note: "Quick answers about Herbert and the guidance available on this site.",
+    note: "Help users find quick answers to common queries about Herbert, our AI-powered assistant for German visa and immigration processes.",
     items: [
       ["What is Herbert?", "Herbert is an AI-powered assistant designed to help with German visa and immigration processes. It provides guidance, answers questions, and helps you navigate the requirements and procedures involved."],
       ["How accurate is the information provided by Herbert?", "Requirements can change and may depend on your situation. Use the sources page and confirm current details with the responsible authority."],
@@ -54,7 +54,7 @@ export const homePageData = {
   },
   cta: {
     title: ["Need Help in Your Visa?", "Ask Herbert Now!"],
-    description: "Explore visa topics, review useful resources, and get guidance as you prepare to move to Germany.",
+    description: "Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.",
     primaryAction: "Start your conversation",
     secondaryAction: "Learn More",
   },

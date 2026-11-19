@@ -1,6 +1,6 @@
 export function FormsIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[19px] fill-current stroke-current [stroke-width:1.5] [&_path]:fill-none [&_path]:[stroke-linecap:round] [&_path]:[stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true">
       <rect x="3" y="5" width="18" height="15" rx="3" />
       <path d="M3 9h18M7 7h.01M10 7h.01M13 7h.01" />
     </svg>
@@ -9,7 +9,7 @@ export function FormsIcon() {
 
 export function DocumentChecklistIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[19px] fill-current stroke-current [stroke-width:1.5] [&_path]:fill-none [&_path]:[stroke-linecap:round] [&_path]:[stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
       <path d="M14 3v6h6M8 14h5M8 17h4" />
     </svg>
@@ -18,7 +18,7 @@ export function DocumentChecklistIcon() {
 
 export function LanguageAssistanceIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[19px] fill-current stroke-current [stroke-width:1.5] [&_path]:fill-none [&_path]:[stroke-linecap:round] [&_path]:[stroke-linejoin:round]" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 5h10v14H4zM14 8h6v11h-6" />
       <path d="M7 9h4M7 12h4M16 12l2 3M18 12l-2 3" />
     </svg>
@@ -27,7 +27,7 @@ export function LanguageAssistanceIcon() {
 
 export function VisaProcessIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[19px]" viewBox="0 0 24 24" aria-hidden="true">
       <circle
         cx="12"
         cy="12"
@@ -46,7 +46,7 @@ export function VisaProcessIcon() {
 
 export function VisaDocumentsIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[19px]" viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"
         fill="none"
@@ -66,7 +66,7 @@ export function VisaDocumentsIcon() {
 
 export function VisaTimeIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[19px]" viewBox="0 0 24 24" aria-hidden="true">
       <circle
         cx="12"
         cy="12"
@@ -88,7 +88,7 @@ export function VisaTimeIcon() {
 
 export function FacebookIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[17px]" viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4Z"
         fill="currentColor"
@@ -99,7 +99,7 @@ export function FacebookIcon() {
 
 export function InstagramIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[17px]" viewBox="0 0 24 24" aria-hidden="true">
       <rect
         x="4"
         y="4"
@@ -125,7 +125,7 @@ export function InstagramIcon() {
 
 export function LinkedInIcon() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
+    <svg className="size-[17px]" viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M6.4 9.2H3.5V20h2.9V9.2ZM5 4a1.7 1.7 0 1 0 0 3.4A1.7 1.7 0 0 0 5 4Zm15 9.8c0-3.3-1.8-4.9-4.3-4.9-2 0-2.9 1.1-3.4 1.9V9.2H9.4V20h2.9v-5.3c0-1.4.3-2.7 2-2.7 1.6 0 1.6 1.5 1.6 2.8V20h2.9v-6.2Z"
         fill="currentColor"

@@ -25,18 +25,24 @@ const visaTopics = [
 
 function GuideIllustration() {
   return (
-    <div className="source-illustration source-person">
-      <img src={guideLeftImage} alt="Herbert waving hello" />
+    <div className="relative grid min-h-80 place-items-center max-md:min-h-72.5">
+      <img
+        className="h-90 w-[min(75%,300px)] object-contain object-bottom max-md:h-76.25 max-md:w-55"
+        src={guideLeftImage}
+        alt="Herbert waving hello"
+      />
     </div>
   );
 }
 
 function RegulationList({ items, startAt }) {
   return (
-    <ul className="regulation-list">
+    <ul className="m-0 grid list-none gap-9 p-0 max-md:gap-5.5">
       {items.map((item, index) => (
-        <li key={item}>
-          <b>{startAt + index}</b>
+        <li className="text-[13px] leading-normal max-md:text-sm" key={item}>
+          <b className="mx-auto mb-3 grid size-7.5 place-items-center rounded-full bg-brand text-[15px] font-bold text-white max-md:mx-0 max-md:mb-2.5 max-md:size-8.5">
+            {startAt + index}
+          </b>
           {item}
         </li>
       ))}
@@ -46,94 +52,113 @@ function RegulationList({ items, startAt }) {
 
 function VisaTopicCard({ title, Icon }) {
   return (
-    <article>
-      <span className="mini-icon" aria-hidden="true">
+    <article className="grid min-h-32.5 content-center justify-items-center rounded-md bg-white p-4.5 text-center shadow-[0_5px_20px_rgba(37,25,16,0.04)] max-md:min-h-30 max-md:p-3.5">
+      <span className="mb-2.5 grid size-8.75 place-items-center rounded-full bg-tag text-brand">
         <Icon />
       </span>
-      <p>{title}</p>
+      <p className="m-0 max-w-37.5 text-[13px] max-md:text-[13px]">{title}</p>
     </article>
+  );
+}
+
+function SourceSectionHeading({ children, note }) {
+  return (
+    <SectionHeading
+      align="left"
+      headingClassName="text-[32px] max-md:text-[25px]"
+      noteClassName="my-3 mb-[18px] max-md:my-3"
+      note={note}
+    >
+      {children}
+    </SectionHeading>
   );
 }
 
 export default function Sources() {
   return (
-    <main className="sources-page">
-      <section className="sources-hero section-space">
-        <div className="hero-lines" aria-hidden="true" />
-        <h1>
+    <main>
+      <section className="relative min-h-91.25 overflow-hidden px-6 pb-0 pt-16.25 text-center max-md:min-h-105 max-md:px-6 max-md:pb-12.5 max-md:pt-18">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.65] [background:repeating-linear-gradient(28deg,transparent_0_57px,rgba(255,145,72,0.12)_58px_59px,transparent_60px_90px)] mask-[linear-gradient(to_bottom,#000_0%,transparent_70%)]"
+          aria-hidden="true"
+        />
+        <h1 className="relative z-10 mx-auto my-3 max-w-185 text-[clamp(36px,4vw,50px)] font-bold leading-[1.08] tracking-[-0.04em] max-md:mb-3.75 max-md:mt-2 max-md:text-[clamp(29px,8vw,36px)] max-md:leading-[1.15]">
           The Foundations of{" "}
-          <span>
+          <span className="text-accent">
             German
             <br />
             Immigration
           </span>{" "}
           Expertise
         </h1>
-        <p>
-          This page introduces key German and European rules related to
-          immigration. Use the links to review current requirements with the
-          responsible authorities.
+        <p className="relative z-10 mx-auto mb-6.25 mt-0 max-w-170 text-sm leading-[1.7] text-muted max-md:mb-6.5 max-md:leading-[1.55]">
+          Herbert, our AI chatbot, is built on a comprehensive understanding of
+          German immigration law. To ensure accuracy and reliability,
+          Herbert&apos;s knowledge base is derived from the following
+          authoritative sources:
         </p>
-        <Button href="#contact">Contact Us</Button>
+        <Button className="max-md:min-h-11 max-md:text-[13px]" href="#contact">
+          Contact Us
+        </Button>
       </section>
 
-      <section className="source-row section-space" id="residence">
-        <div className="source-copy">
-          <SectionHeading
-            className="sources-heading"
-            note="The Aufenthaltsgesetz is the cornerstone of German immigration law. This act governs:"
-          >
-            Residence <span>Act</span>
-          </SectionHeading>
+      <section
+        className="mx-auto grid min-h-115 max-w-310 grid-cols-2 items-center gap-13.5 px-6 py-22 max-md:min-h-0 max-md:grid-cols-1 max-md:gap-5 max-md:px-6.5 max-md:py-13.5"
+        id="residence"
+      >
+        <div className="col-start-1 row-start-1 max-md:col-start-1 max-md:row-auto">
+          <SourceSectionHeading note="The Aufenthaltsgesetz is the cornerstone of German immigration law. This act governs:">
+            Residence <span className="text-accent">Act</span>
+          </SourceSectionHeading>
         </div>
-        <GuideIllustration />
-        <div className="source-detail">
-          <ul>
+        <div className="col-start-2 row-span-2 row-start-1 max-md:col-start-1 max-md:row-auto">
+          <GuideIllustration />
+        </div>
+        <div className="col-start-1 row-start-2 text-sm leading-[1.65] text-copy max-md:col-start-1 max-md:row-auto">
+          <ul className="my-0 mb-4.5 list-disc pl-5">
             <li>Entry into Germany</li>
             <li>Residence permits</li>
             <li>Employment regulations for foreigners</li>
             <li>Integration measures</li>
           </ul>
-          <p>
-            Review the current text of the Residence Act to learn about legal
-            residence requirements and pathways for living in Germany.
+          <p className="mb-0 mt-4.5">
+            Herbert utilizes this act to provide precise information on legal
+            residence requirements and pathways to living in Germany.
           </p>
         </div>
       </section>
 
-      <section className="source-row source-row--reverse section-space">
-        <div className="source-copy">
-          <SectionHeading
-            className="sources-heading"
-            note="As part of the Schengen Area, Germany follows this code for border control. The Schengener Grenzkodex covers:"
-          >
-            Schengen Borders <span>Code</span>
-          </SectionHeading>
-          <ul>
+      <section className="grid min-h-115 grid-cols-2 items-center gap-13.5 bg-peach px-[max(24px,calc((100%-1240px)/2))] py-22 max-md:min-h-0 max-md:grid-cols-1 max-md:gap-5 max-md:px-6.5 max-md:py-13.5">
+        <div className="order-1 max-md:order-2">
+          <SourceSectionHeading note="As part of the Schengen Area, Germany adheres to this code for border control. Herbert's knowledge of the Schengener Grenzkodex covers:">
+            Schengen Borders <span className="text-accent">Code</span>
+          </SourceSectionHeading>
+          <ul className="list-disc pl-5 text-[13px] leading-[1.65] text-copy max-md:text-sm">
             <li>Short-term stay regulations</li>
             <li>Entry requirements for the Schengen Area</li>
             <li>Border crossing procedures</li>
           </ul>
         </div>
-        <div className="source-illustration source-building">
+        <div className="order-0 grid min-h-80 place-items-center overflow-hidden rounded-none bg-transparent max-md:min-h-72.5">
           <img
+            className="block h-full min-h-90 w-full object-contain max-md:min-h-70"
             src={sourcesGateGroupsImage}
             alt="Graduates, a family and medical professionals outside the Brandenburg Gate"
           />
         </div>
       </section>
 
-      <section className="employment-section section-space">
-        <SectionHeading
-          className="sources-heading"
-          note="The Employment Regulation describes conditions for foreign nationals working in Germany. Review the current regulation for details on:"
-        >
-          Employment <span>Regulation</span>
-        </SectionHeading>
-        <div className="employment-content">
+      <section className="bg-paper px-6 py-22 text-center max-md:px-5 max-md:pb-13.75 max-md:pt-14.5">
+        <div className="mx-auto max-w-190">
+          <SectionHeading note="This regulation details the conditions under which foreign nationals can work in Germany. Herbert's training in the Beschäftigungsverordnung allows for accurate guidance on:">
+            Employment <span className="text-accent">Regulation</span>
+          </SectionHeading>
+        </div>
+        <div className="mx-auto mt-10.5 grid max-w-262.5 grid-cols-[1fr_1.2fr_1fr] items-center gap-6.25 max-md:mt-7 max-md:grid-cols-2 max-md:gap-x-3 max-md:gap-y-5">
           <RegulationList items={regulations.slice(0, 2)} startAt={1} />
-          <div className="source-illustration employment-art">
+          <div className="relative col-start-2 row-start-1 grid min-h-70 place-items-center overflow-hidden max-md:col-span-2 max-md:col-start-1 max-md:row-start-1 max-md:min-h-85">
             <img
+              className="h-107.5 w-[min(100%,330px)] object-contain object-bottom max-md:h-82.5"
               src={sourcesEmploymentSignpostImage}
               alt="Herbert beside a signpost pointing to work and tourism in Germany"
             />
@@ -142,31 +167,34 @@ export default function Sources() {
         </div>
       </section>
 
-      <section className="visa-code-section section-space">
-        <div className="visa-code-cards">
+      <section className="grid grid-cols-[1.1fr_1fr] items-center gap-17.5 bg-peach px-[max(24px,calc((100%-1140px)/2))] py-22 max-md:grid-cols-1 max-md:gap-8 max-md:px-6.5 max-md:py-11.5">
+        <div className="grid grid-cols-2 gap-4.5 max-md:gap-3">
           {visaTopics.map((topic) => (
             <VisaTopicCard key={topic.title} {...topic} />
           ))}
         </div>
-        <div className="source-copy">
-          <SectionHeading
-            className="sources-heading"
-            note="The Visa Code sets common procedures for short-stay visa applications in the Schengen Area. It covers topics such as:"
+        <div>
+          <SourceSectionHeading note="This code standardizes procedures for short-stay visas in the Schengen Area. Herbert's understanding of the Visa-Kodex ensures accurate information on:">
+            Visa <span className="text-accent">Code</span>
+          </SourceSectionHeading>
+          <Button
+            className="max-md:min-h-11 max-md:text-[13px]"
+            href="#visa-handbook"
           >
-            Visa <span>Code</span>
-          </SectionHeading>
-          <Button href="#visa-handbook">View visa handbook</Button>
+            Learn more
+          </Button>
         </div>
       </section>
-      <section className="source-row section-space" id="visa-handbook">
-        <div className="source-copy">
-          <SectionHeading
-            className="sources-heading"
-            note="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:"
-          >
-            Visa <span>Handbook</span>
-          </SectionHeading>
-          <ul>
+
+      <section
+        className="mx-auto grid min-h-115 max-w-310 grid-cols-2 items-center gap-13.5 px-6 py-22 max-md:min-h-0 max-md:grid-cols-1 max-md:gap-5 max-md:px-6.5 max-md:py-13.5"
+        id="visa-handbook"
+      >
+        <div>
+          <SourceSectionHeading note="The Visumhandbuch is a comprehensive internal document used by the Federal Foreign Office and German embassies. Spanning approximately 1,000 pages, it provides detailed guidelines on visa issuance. Herbert's training on this resource offers:">
+            Visa <span className="text-accent">Handbook</span>
+          </SourceSectionHeading>
+          <ul className="list-disc pl-5 text-[13px] leading-[1.65] text-copy max-md:text-sm">
             <li>In-depth insights into visa application assessment</li>
             <li>Clarification on complex cases and exceptions</li>
             <li>Nuanced interpretations of immigration laws and regulations</li>
@@ -175,14 +203,16 @@ export default function Sources() {
         <GuideIllustration />
       </section>
 
-      <p className="sources-note">
-        Immigration requirements can change and depend on individual
-        circumstances. Always verify details with the relevant German authority
-        or embassy before acting.
+      <p className="mx-auto mb-10 mt-0 max-w-285 rounded-[5px] border border-[#eee5de] p-4.25 text-xs leading-[1.6] text-[#6c645e] max-md:mx-6.5 max-md:mb-8 max-md:p-4.5 max-md:text-sm">
+        By basing its knowledge on these official sources, Herbert provides you
+        with accurate, up-to-date, &amp; reliable information on German
+        immigration processes. Our commitment to using these authoritative
+        resources ensures that you receive guidance aligned with current German
+        immigration laws &amp; practices.
       </p>
       <CtaPanel
         title={["Need Help in Your Visa?", "Ask Herbert Now!"]}
-        description="Explore visa topics, review useful resources, and get guidance as you prepare to move to Germany."
+        description="Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam."
         primaryAction="Start your conversation"
         primaryHref="/#features"
         secondaryAction="Learn More"
