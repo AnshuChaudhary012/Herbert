@@ -175,7 +175,6 @@ export default function Sources() {
           <Button href="#visa-handbook">View visa handbook</Button>
         </div>
       </section>
-
       <section className="source-row section-space" id="visa-handbook">
         <div className="source-copy">
           <SourcesHeading text="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:">
