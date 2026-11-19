@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
+import { Link } from "react-router";
 import Button from "./common/Button";
-import SiteLogo from "./common/SiteLogo";
+import logo from "../assets/images/logo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="relative z-20 h-[62px] bg-[#fffdfa]/96 min-[701px]:h-[82px]">
       <nav className="mx-auto flex h-full w-[calc(100%-28px)] max-w-[1328px] items-center justify-between min-[701px]:w-[calc(100%-48px)]" aria-label="Main navigation">
-        <SiteLogo className="header-wordmark" onClick={() => setMenuOpen(false)} />
+        <Link to="/" onClick={() => setMenuOpen(false)} className="site-logo header-wordmark" aria-label="Herbert home">
+          <img src={logo} alt="Herbert — Your AI German Visa Guide" />
+        </Link>
         <button
           className="menu-toggle hidden"
           type="button"
@@ -33,7 +36,9 @@ export default function Navbar() {
           id="primary-navigation"
           className={`nav-links flex items-center gap-8 text-sm ${menuOpen ? "is-open" : ""}`}
         >
-          <SiteLogo className="mobile-menu-logo" onClick={() => setMenuOpen(false)} />
+          <Link to="/" onClick={() => setMenuOpen(false)} className="site-logo mobile-menu-logo" aria-label="Herbert home">
+            <img src={logo} alt="Herbert — Your AI German Visa Guide" />
+          </Link>
           <NavLink to="/" end onClick={() => setMenuOpen(false)}>
             Herbert
           </NavLink>
