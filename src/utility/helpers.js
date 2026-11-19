@@ -1,7 +1,3 @@
-export function classNames(...values) {
-  return values.filter(Boolean).join(' ')
-}
-
 // Home page content, kept together so section components only handle presentation.
 export const homePageData = {
   hero: {
