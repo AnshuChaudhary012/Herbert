@@ -1,4 +1,5 @@
 import Button from "../components/common/Button";
+import CtaPanel from "../components/sections/CtaPanel";
 import SectionHeading from "../components/sections/SectionHeading";
 import guideLeftImage from "../assets/images/figma/guide-left.png";
 import sourcesGateGroupsImage from "../assets/images/figma/sources-gate-groups.png";
@@ -16,9 +17,13 @@ const regulations = [
   "Specific provisions for various professional groups",
 ];
 
-const visaTopicIcons = [VisaProcessIcon, VisaDocumentsIcon, VisaTimeIcon];
+const visaTopics = [
+  { title: "Visa application processes", Icon: VisaProcessIcon },
+  { title: "Required documentation", Icon: VisaDocumentsIcon },
+  { title: "Visa fees and processing times", Icon: VisaTimeIcon },
+];
 
-function GuidePlaceholder() {
+function GuideIllustration() {
   return (
     <div className="source-illustration source-person">
       <img src={guideLeftImage} alt="Herbert waving hello" />
@@ -26,27 +31,27 @@ function GuidePlaceholder() {
   );
 }
 
-function SourceCta() {
+function RegulationList({ items, startAt }) {
   return (
-    <section className="cta-wrap" id="contact">
-      <div className="cta-panel">
-        <h2>
-          Need Help in Your Visa?
-          <br />
-          Ask Herbert Now!
-        </h2>
-        <p>
-          Explore visa topics, review useful resources, and get guidance as you
-          prepare to move to Germany.
-        </p>
-        <div className="cta-actions">
-          <Button href="/#features">Start your conversation</Button>
-          <Button href="/" variant="outline-light">
-            Learn More
-          </Button>
-        </div>
-      </div>
-    </section>
+    <ul className="regulation-list">
+      {items.map((item, index) => (
+        <li key={item}>
+          <b>{startAt + index}</b>
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function VisaTopicCard({ title, Icon }) {
+  return (
+    <article>
+      <span className="mini-icon" aria-hidden="true">
+        <Icon />
+      </span>
+      <p>{title}</p>
+    </article>
   );
 }
 
@@ -74,11 +79,14 @@ export default function Sources() {
 
       <section className="source-row section-space" id="residence">
         <div className="source-copy">
-          <SectionHeading className="sources-heading" note="The Aufenthaltsgesetz is the cornerstone of German immigration law. This act governs:">
+          <SectionHeading
+            className="sources-heading"
+            note="The Aufenthaltsgesetz is the cornerstone of German immigration law. This act governs:"
+          >
             Residence <span>Act</span>
           </SectionHeading>
         </div>
-        <GuidePlaceholder />
+        <GuideIllustration />
         <div className="source-detail">
           <ul>
             <li>Entry into Germany</li>
@@ -95,7 +103,10 @@ export default function Sources() {
 
       <section className="source-row source-row--reverse section-space">
         <div className="source-copy">
-          <SectionHeading className="sources-heading" note="As part of the Schengen Area, Germany follows this code for border control. The Schengener Grenzkodex covers:">
+          <SectionHeading
+            className="sources-heading"
+            note="As part of the Schengen Area, Germany follows this code for border control. The Schengener Grenzkodex covers:"
+          >
             Schengen Borders <span>Code</span>
           </SectionHeading>
           <ul>
@@ -113,55 +124,35 @@ export default function Sources() {
       </section>
 
       <section className="employment-section section-space">
-        <SectionHeading className="sources-heading" note="The Employment Regulation describes conditions for foreign nationals working in Germany. Review the current regulation for details on:">
+        <SectionHeading
+          className="sources-heading"
+          note="The Employment Regulation describes conditions for foreign nationals working in Germany. Review the current regulation for details on:"
+        >
           Employment <span>Regulation</span>
         </SectionHeading>
         <div className="employment-content">
-          <ul className="regulation-list">
-            {regulations.slice(0, 2).map((item, i) => (
-              <li key={item}>
-                <b>{i + 1}</b>
-                {item}
-              </li>
-            ))}
-          </ul>
+          <RegulationList items={regulations.slice(0, 2)} startAt={1} />
           <div className="source-illustration employment-art">
             <img
               src={sourcesEmploymentSignpostImage}
               alt="Herbert beside a signpost pointing to work and tourism in Germany"
             />
           </div>
-          <ul className="regulation-list">
-            {regulations.slice(2).map((item, i) => (
-              <li key={item}>
-                <b>{i + 3}</b>
-                {item}
-              </li>
-            ))}
-          </ul>
+          <RegulationList items={regulations.slice(2)} startAt={3} />
         </div>
       </section>
 
       <section className="visa-code-section section-space">
         <div className="visa-code-cards">
-          {[
-            "Visa application processes",
-            "Required documentation",
-            "Visa fees and processing times",
-          ].map((title, index) => {
-            const Icon = visaTopicIcons[index];
-            return (
-              <article key={title}>
-                <span className="mini-icon" aria-hidden="true">
-                  <Icon />
-                </span>
-                <p>{title}</p>
-              </article>
-            );
-          })}
+          {visaTopics.map((topic) => (
+            <VisaTopicCard key={topic.title} {...topic} />
+          ))}
         </div>
         <div className="source-copy">
-          <SectionHeading className="sources-heading" note="The Visa Code sets common procedures for short-stay visa applications in the Schengen Area. It covers topics such as:">
+          <SectionHeading
+            className="sources-heading"
+            note="The Visa Code sets common procedures for short-stay visa applications in the Schengen Area. It covers topics such as:"
+          >
             Visa <span>Code</span>
           </SectionHeading>
           <Button href="#visa-handbook">View visa handbook</Button>
@@ -169,7 +160,10 @@ export default function Sources() {
       </section>
       <section className="source-row section-space" id="visa-handbook">
         <div className="source-copy">
-          <SectionHeading className="sources-heading" note="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:">
+          <SectionHeading
+            className="sources-heading"
+            note="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:"
+          >
             Visa <span>Handbook</span>
           </SectionHeading>
           <ul>
@@ -178,7 +172,7 @@ export default function Sources() {
             <li>Nuanced interpretations of immigration laws and regulations</li>
           </ul>
         </div>
-        <GuidePlaceholder />
+        <GuideIllustration />
       </section>
 
       <p className="sources-note">
@@ -186,7 +180,14 @@ export default function Sources() {
         circumstances. Always verify details with the relevant German authority
         or embassy before acting.
       </p>
-      <SourceCta />
+      <CtaPanel
+        title={["Need Help in Your Visa?", "Ask Herbert Now!"]}
+        description="Explore visa topics, review useful resources, and get guidance as you prepare to move to Germany."
+        primaryAction="Start your conversation"
+        primaryHref="/#features"
+        secondaryAction="Learn More"
+        secondaryHref="/"
+      />
     </main>
   );
 }
