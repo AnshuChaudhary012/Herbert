@@ -1,8 +1,18 @@
-export default function SectionHeading({ first, accent, note }) {
+export default function SectionHeading({
+  first,
+  accent,
+  note,
+  className = "section-heading",
+  children,
+}) {
   return (
-    <div className="section-heading">
+    <div className={className}>
       <h2>
-        {first} <span>{accent}</span>
+        {children ?? (
+          <>
+            {first} <span>{accent}</span>
+          </>
+        )}
       </h2>
       {note && <p>{note}</p>}
     </div>

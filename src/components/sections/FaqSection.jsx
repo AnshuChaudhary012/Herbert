@@ -3,6 +3,18 @@ import Button from "../common/Button";
 import SectionHeading from "./SectionHeading";
 import { homePageData } from "../../utility/helpers";
 
+function FaqItem({ question, answer, isOpen, onToggle }) {
+  return (
+    <article className={`faq-item ${isOpen ? "is-open" : ""}`}>
+      <button aria-expanded={isOpen} onClick={onToggle}>
+        <span>{question}</span>
+        <b>{isOpen ? "\u2212" : "+"}</b>
+      </button>
+      {isOpen && <p>{answer}</p>}
+    </article>
+  );
+}
+
 export default function FaqSection() {
   const { faq } = homePageData;
   const [openQuestions, setOpenQuestions] = useState([0]);
@@ -23,19 +35,13 @@ export default function FaqSection() {
       />
       <div className="faq-grid">
         {faq.items.map(([question, answer], index) => (
-          <article
-            className={`faq-item ${openQuestions.includes(index) ? "is-open" : ""}`}
+          <FaqItem
             key={question}
-          >
-            <button
-              aria-expanded={openQuestions.includes(index)}
-              onClick={() => toggleQuestion(index)}
-            >
-              <span>{question}</span>
-              <b>{openQuestions.includes(index) ? "−" : "+"}</b>
-            </button>
-            {openQuestions.includes(index) && <p>{answer}</p>}
-          </article>
+            question={question}
+            answer={answer}
+            isOpen={openQuestions.includes(index)}
+            onToggle={() => toggleQuestion(index)}
+          />
         ))}
       </div>
       <Button

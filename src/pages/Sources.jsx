@@ -1,4 +1,5 @@
 import Button from "../components/common/Button";
+import SectionHeading from "../components/sections/SectionHeading";
 import guideLeftImage from "../assets/images/figma/guide-left.png";
 import sourcesGateGroupsImage from "../assets/images/figma/sources-gate-groups.png";
 import sourcesEmploymentSignpostImage from "../assets/images/figma/sources-employment-signpost.png";
@@ -16,15 +17,6 @@ const regulations = [
 ];
 
 const visaTopicIcons = [VisaProcessIcon, VisaDocumentsIcon, VisaTimeIcon];
-
-function SourcesHeading({ children, text }) {
-  return (
-    <div className="sources-heading">
-      <h2>{children}</h2>
-      {text && <p>{text}</p>}
-    </div>
-  );
-}
 
 function GuidePlaceholder() {
   return (
@@ -82,9 +74,9 @@ export default function Sources() {
 
       <section className="source-row section-space" id="residence">
         <div className="source-copy">
-          <SourcesHeading text="The Aufenthaltsgesetz is the cornerstone of German immigration law. This act governs:">
+          <SectionHeading className="sources-heading" note="The Aufenthaltsgesetz is the cornerstone of German immigration law. This act governs:">
             Residence <span>Act</span>
-          </SourcesHeading>
+          </SectionHeading>
         </div>
         <GuidePlaceholder />
         <div className="source-detail">
@@ -103,9 +95,9 @@ export default function Sources() {
 
       <section className="source-row source-row--reverse section-space">
         <div className="source-copy">
-          <SourcesHeading text="As part of the Schengen Area, Germany follows this code for border control. The Schengener Grenzkodex covers:">
+          <SectionHeading className="sources-heading" note="As part of the Schengen Area, Germany follows this code for border control. The Schengener Grenzkodex covers:">
             Schengen Borders <span>Code</span>
-          </SourcesHeading>
+          </SectionHeading>
           <ul>
             <li>Short-term stay regulations</li>
             <li>Entry requirements for the Schengen Area</li>
@@ -121,9 +113,9 @@ export default function Sources() {
       </section>
 
       <section className="employment-section section-space">
-        <SourcesHeading text="The Employment Regulation describes conditions for foreign nationals working in Germany. Review the current regulation for details on:">
+        <SectionHeading className="sources-heading" note="The Employment Regulation describes conditions for foreign nationals working in Germany. Review the current regulation for details on:">
           Employment <span>Regulation</span>
-        </SourcesHeading>
+        </SectionHeading>
         <div className="employment-content">
           <ul className="regulation-list">
             {regulations.slice(0, 2).map((item, i) => (
@@ -169,17 +161,17 @@ export default function Sources() {
           })}
         </div>
         <div className="source-copy">
-          <SourcesHeading text="The Visa Code sets common procedures for short-stay visa applications in the Schengen Area. It covers topics such as:">
+          <SectionHeading className="sources-heading" note="The Visa Code sets common procedures for short-stay visa applications in the Schengen Area. It covers topics such as:">
             Visa <span>Code</span>
-          </SourcesHeading>
+          </SectionHeading>
           <Button href="#visa-handbook">View visa handbook</Button>
         </div>
       </section>
       <section className="source-row section-space" id="visa-handbook">
         <div className="source-copy">
-          <SourcesHeading text="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:">
+          <SectionHeading className="sources-heading" note="The German Foreign Office publishes a visa handbook for use in visa processing. Consult the current handbook and the responsible mission for applicable guidance:">
             Visa <span>Handbook</span>
-          </SourcesHeading>
+          </SectionHeading>
           <ul>
             <li>In-depth insights into visa application assessment</li>
             <li>Clarification on complex cases and exceptions</li>
