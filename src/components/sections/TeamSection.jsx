@@ -15,11 +15,18 @@ export default function TeamSection() {
       <div className="team-art">
         <picture className="team-art__picture">
           <source media="(max-width: 700px)" srcSet={teamMobileImage} />
-          <img src={teamGroupsImage} alt="Graduates, a family and medical professionals in front of the Brandenburg Gate" />
+          <img
+            src={teamGroupsImage}
+            alt="Graduates, a family and medical professionals in front of the Brandenburg Gate"
+          />
         </picture>
       </div>
       <div className="team-details">
-        <ul>{team.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+        <ul>
+          {team.details.map((detail) => (
+            <li key={detail}>{detail}</li>
+          ))}
+        </ul>
         <Button href="/sources">Learn more</Button>
       </div>
     </section>

@@ -2,7 +2,11 @@ import Button from "../components/common/Button";
 import guideLeftImage from "../assets/images/figma/guide-left.png";
 import sourcesGateGroupsImage from "../assets/images/figma/sources-gate-groups.png";
 import sourcesEmploymentSignpostImage from "../assets/images/figma/sources-employment-signpost.png";
-import { VisaDocumentsIcon, VisaProcessIcon, VisaTimeIcon } from "../components/common/SVG";
+import {
+  VisaDocumentsIcon,
+  VisaProcessIcon,
+  VisaTimeIcon,
+} from "../components/common/SVG";
 
 const regulations = [
   "Work permit requirements",
