@@ -35,8 +35,8 @@ function RegulationList({ items, startAt }) {
   return (
     <ul className="m-0 grid list-none gap-9 p-0 max-md:gap-5.5">
       {items.map((item, index) => (
-        <li className="text-[13px] leading-normal max-md:text-sm" key={item}>
-          <b className="mx-auto mb-3 grid size-7.5 place-items-center rounded-full bg-brand text-[15px] font-bold text-white max-md:mx-0 max-md:mb-2.5 max-md:size-8.5">
+        <li className="flex flex-col gap-3 text-[13px] leading-normal max-md:gap-2.5 max-md:text-sm" key={item}>
+          <b className="mx-auto grid size-7.5 place-items-center rounded-full bg-brand text-[15px] font-bold text-white max-md:mx-0 max-md:size-8.5">
             {startAt + index}
           </b>
           {item}
@@ -48,8 +48,8 @@ function RegulationList({ items, startAt }) {
 
 function VisaTopicCard({ title, icon }) {
   return (
-    <article className="grid min-h-32.5 content-center justify-items-center rounded-md bg-white p-4.5 text-center shadow-[0_5px_20px_rgba(37,25,16,0.04)] max-md:min-h-30 max-md:p-3.5">
-      <span className="mb-2.5 grid size-8.75 place-items-center rounded-full bg-tag text-brand">
+    <article className="grid min-h-32.5 content-center justify-items-center gap-2.5 rounded-md bg-white p-4.5 text-center shadow-[0_5px_20px_rgba(37,25,16,0.04)] max-md:min-h-30 max-md:p-3.5">
+      <span className="grid size-8.75 place-items-center rounded-full bg-tag text-brand">
         <SVG name={icon} />
       </span>
       <p className="m-0 max-w-37.5 text-[13px] max-md:text-[13px]">{title}</p>
@@ -62,7 +62,7 @@ function SourceSectionHeading({ children, note }) {
     <SectionHeading
       align="left"
       headingClassName="text-[32px] max-md:text-[25px]"
-      noteClassName="my-3 mb-[18px] max-md:my-3"
+      noteClassName="mb-[18px] max-md:mb-3"
       note={note}
     >
       {children}
@@ -73,26 +73,28 @@ function SourceSectionHeading({ children, note }) {
 export default function Sources() {
   return (
     <main>
-      <section className="relative min-h-91.25 overflow-hidden px-6 pb-0 pt-16.25 text-center max-md:min-h-105 max-md:px-6 max-md:pb-12.5 max-md:pt-18">
+      <section className="relative flex min-h-91.25 flex-col items-center gap-6.25 overflow-hidden px-6 pb-0 pt-19.25 text-center max-md:min-h-105 max-md:gap-6.5 max-md:px-6 max-md:pb-12.5 max-md:pt-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.65] [background:repeating-linear-gradient(28deg,transparent_0_57px,rgba(255,145,72,0.12)_58px_59px,transparent_60px_90px)] mask-[linear-gradient(to_bottom,#000_0%,transparent_70%)]"
           aria-hidden="true"
         />
-        <h1 className="relative z-10 mx-auto my-3 max-w-185 text-[clamp(36px,4vw,50px)] font-bold leading-[1.08] tracking-[-0.04em] max-md:mb-3.75 max-md:mt-2 max-md:text-[clamp(29px,8vw,36px)] max-md:leading-[1.15]">
-          The Foundations of{" "}
-          <span className="text-accent">
-            German
-            <br />
-            Immigration
-          </span>{" "}
-          Expertise
-        </h1>
-        <p className="relative z-10 mx-auto mb-6.25 mt-0 max-w-170 text-sm leading-[1.7] text-muted max-md:mb-6.5 max-md:leading-[1.55]">
-          Herbert, our AI chatbot, is built on a comprehensive understanding of
-          German immigration law. To ensure accuracy and reliability,
-          Herbert&apos;s knowledge base is derived from the following
-          authoritative sources:
-        </p>
+        <div className="relative z-10 flex flex-col items-center gap-3 max-md:gap-3.75">
+          <h1 className="mx-auto max-w-185 text-[clamp(36px,4vw,50px)] font-bold leading-[1.08] tracking-[-0.04em] max-md:text-[clamp(29px,8vw,36px)] max-md:leading-[1.15]">
+            The Foundations of{" "}
+            <span className="text-accent">
+              German
+              <br />
+              Immigration
+            </span>{" "}
+            Expertise
+          </h1>
+          <p className="my-0 mx-auto max-w-170 text-sm leading-[1.7] text-muted max-md:leading-[1.55]">
+            Herbert, our AI chatbot, is built on a comprehensive understanding
+            of German immigration law. To ensure accuracy and reliability,
+            Herbert&apos;s knowledge base is derived from the following
+            authoritative sources:
+          </p>
+        </div>
         <Button className="max-md:min-h-11 max-md:text-[13px]" href="#contact">
           Contact Us
         </Button>
@@ -110,14 +112,14 @@ export default function Sources() {
         <div className="col-start-2 row-span-2 row-start-1 max-md:col-start-1 max-md:row-auto">
           <GuideIllustration />
         </div>
-        <div className="col-start-1 row-start-2 text-sm leading-[1.65] text-copy max-md:col-start-1 max-md:row-auto">
-          <ul className="my-0 mb-4.5 list-disc pl-5">
+        <div className="col-start-1 row-start-2 flex flex-col gap-4.5 text-sm leading-[1.65] text-copy max-md:col-start-1 max-md:row-auto">
+          <ul className="m-0 list-disc pl-5">
             <li>Entry into Germany</li>
             <li>Residence permits</li>
             <li>Employment regulations for foreigners</li>
             <li>Integration measures</li>
           </ul>
-          <p className="mb-0 mt-4.5">
+          <p className="m-0">
             Herbert utilizes this act to provide precise information on legal
             residence requirements and pathways to living in Germany.
           </p>
@@ -144,13 +146,16 @@ export default function Sources() {
         </div>
       </section>
 
-      <section className="bg-paper px-6 py-22 text-center max-md:px-5 max-md:pb-13.75 max-md:pt-14.5">
+      <section className="flex flex-col items-center gap-10.5 bg-paper px-6 pb-22 pt-22 text-center max-md:gap-7 max-md:px-5 max-md:pb-13.75 max-md:pt-14.5">
         <div className="mx-auto max-w-190">
-          <SectionHeading note="This regulation details the conditions under which foreign nationals can work in Germany. Herbert's training in the Beschäftigungsverordnung allows for accurate guidance on:">
+          <SectionHeading
+            note="This regulation details the conditions under which foreign nationals can work in Germany. Herbert's training in the Beschäftigungsverordnung allows for accurate guidance on:"
+            noteClassName="mb-0"
+          >
             Employment <span className="text-accent">Regulation</span>
           </SectionHeading>
         </div>
-        <div className="mx-auto mt-10.5 grid max-w-262.5 grid-cols-[1fr_1.2fr_1fr] items-center gap-6.25 max-md:mt-7 max-md:grid-cols-2 max-md:gap-x-3 max-md:gap-y-5">
+        <div className="grid w-full max-w-262.5 grid-cols-[1fr_1.2fr_1fr] items-center gap-6.25 max-md:grid-cols-2 max-md:gap-x-3 max-md:gap-y-5">
           <RegulationList items={regulations.slice(0, 2)} startAt={1} />
           <div className="relative col-start-2 row-start-1 grid min-h-70 place-items-center overflow-hidden max-md:col-span-2 max-md:col-start-1 max-md:row-start-1 max-md:min-h-85">
             <img
@@ -199,13 +204,15 @@ export default function Sources() {
         <GuideIllustration />
       </section>
 
-      <p className="mx-auto mb-10 mt-0 max-w-285 rounded-[5px] border border-[#eee5de] p-4.25 text-xs leading-[1.6] text-[#6c645e] max-md:mx-6.5 max-md:mb-8 max-md:p-4.5 max-md:text-sm">
-        By basing its knowledge on these official sources, Herbert provides you
-        with accurate, up-to-date, &amp; reliable information on German
-        immigration processes. Our commitment to using these authoritative
-        resources ensures that you receive guidance aligned with current German
-        immigration laws &amp; practices.
-      </p>
+      <div className="mx-auto w-[calc(100%-52px)] max-w-285 pb-10 max-md:pb-8">
+        <p className="m-0 rounded-[5px] border border-[#eee5de] p-4.25 text-xs leading-[1.6] text-[#6c645e] max-md:p-4.5 max-md:text-sm">
+          By basing its knowledge on these official sources, Herbert provides
+          you with accurate, up-to-date, &amp; reliable information on German
+          immigration processes. Our commitment to using these authoritative
+          resources ensures that you receive guidance aligned with current
+          German immigration laws &amp; practices.
+        </p>
+      </div>
       <CtaPanel
         title={["Need Help in Your Visa?", "Ask Herbert Now!"]}
         description="Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam."

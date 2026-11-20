@@ -62,55 +62,59 @@ export default function Navbar() {
         </button>
         <div
           id="primary-navigation"
-          className={`${menuOpen ? "fixed inset-0 z-21 flex flex-col items-stretch justify-start gap-0 overflow-y-auto overscroll-contain bg-paper px-6 pb-7.5 pt-22.5" : "hidden"} md:static md:z-auto md:flex md:flex-row md:items-center md:gap-8 md:overflow-visible md:bg-transparent md:p-0 md:text-sm`}
+          className={`${menuOpen ? "fixed inset-0 z-21 flex flex-col items-stretch justify-start gap-6 overflow-y-auto overscroll-contain bg-paper px-6 pb-7.5 pt-3" : "hidden"} md:static md:z-auto md:flex md:flex-row md:items-center md:gap-8 md:overflow-visible md:bg-transparent md:p-0 md:text-sm`}
           role="dialog"
           aria-modal={menuOpen ? "true" : undefined}
           aria-label="Mobile navigation"
         >
-          <Link
-            to="/"
-            onClick={closeMenu}
-            className="absolute left-6 top-3.5 inline-flex items-center md:hidden"
-            aria-label="Herbert home"
-          >
-            <img
-              className="block h-auto max-h-9 w-auto max-w-37.5 object-contain"
-              src={logo}
-              alt="Herbert, your AI German visa guide"
-            />
-          </Link>
-          <button
-            className="absolute right-5 top-3 grid size-10 place-items-center border-0 bg-transparent p-0 text-ink focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ink md:hidden"
-            type="button"
-            aria-label="Close menu"
-            onClick={closeMenu}
-          >
-            <SVG name="close" />
-          </button>
-          <NavLink
-            to="/"
-            end
-            onClick={closeMenu}
-            className={desktopLinkClasses}
-          >
-            Herbert
-          </NavLink>
-          <NavLink
-            to="/sources"
-            onClick={closeMenu}
-            className={desktopLinkClasses}
-          >
-            Sources
-          </NavLink>
-          <a
-            className="border-b border-transparent py-2.25 text-center text-[#656565] hover:border-[#27211e] hover:text-[#333] md:text-left max-md:grid max-md:min-h-18 max-md:place-items-center max-md:py-4 max-md:text-sm max-sm:font-lato max-sm:font-normal max-sm:leading-normal max-sm:tracking-normal"
-            href="/#team"
-            onClick={closeMenu}
-          >
-            Our Vision
-          </a>
+          <div className="flex flex-col gap-9.5 md:contents">
+            <div className="flex h-10 items-center justify-between md:hidden">
+              <Link
+                to="/"
+                onClick={closeMenu}
+                className="inline-flex items-center"
+                aria-label="Herbert home"
+              >
+                <img
+                  className="block h-auto max-h-9 w-auto max-w-37.5 object-contain"
+                  src={logo}
+                  alt="Herbert, your AI German visa guide"
+                />
+              </Link>
+              <button
+                className="relative left-1 grid size-10 place-items-center border-0 bg-transparent p-0 text-ink focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                type="button"
+                aria-label="Close menu"
+                onClick={closeMenu}
+              >
+                <SVG name="close" />
+              </button>
+            </div>
+            <NavLink
+              to="/"
+              end
+              onClick={closeMenu}
+              className={desktopLinkClasses}
+            >
+              Herbert
+            </NavLink>
+            <NavLink
+              to="/sources"
+              onClick={closeMenu}
+              className={desktopLinkClasses}
+            >
+              Sources
+            </NavLink>
+            <a
+              className="border-b border-transparent py-2.25 text-center text-[#656565] hover:border-[#27211e] hover:text-[#333] md:text-left max-md:grid max-md:min-h-18 max-md:place-items-center max-md:py-4 max-md:text-sm max-sm:font-lato max-sm:font-normal max-sm:leading-normal max-sm:tracking-normal"
+              href="/#team"
+              onClick={closeMenu}
+            >
+              Our Vision
+            </a>
+          </div>
           <Button
-            className="mt-6 flex min-h-11.25 px-4 py-3 text-center text-sm leading-[1.35] md:hidden"
+            className="flex min-h-11.25 px-4 py-3 text-center text-sm leading-[1.35] md:hidden"
             href="/#contact"
             onClick={closeMenu}
           >

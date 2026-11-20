@@ -44,7 +44,7 @@ export default function FaqSection() {
 
   return (
     <section
-      className="mx-auto max-w-295 px-6 py-22 max-md:pb-12 max-md:pt-16"
+      className="mx-auto flex max-w-295 flex-col gap-11 px-6 py-22 max-md:gap-7.5 max-md:pb-12 max-md:pt-16"
       id="faq"
     >
       <SectionHeading
@@ -52,29 +52,31 @@ export default function FaqSection() {
         accent={faq.heading[1]}
         note={faq.note}
       />
-      <div className="mx-auto my-11 grid grid-flow-col grid-cols-2 grid-rows-3 gap-x-5.5 gap-y-3 max-md:my-7.5 max-md:mb-6 max-md:flex max-md:flex-col">
-        {itemsByColumn.map(({ item: [question, answer], index }) => (
-          <FaqItem
-            key={question}
-            question={question}
-            answer={answer}
-            isOpen={openQuestions.includes(index)}
-            onToggle={() => toggleQuestion(index)}
-          />
-        ))}
+      <div className="flex flex-col gap-11 max-md:gap-6">
+        <div className="grid grid-flow-col grid-cols-2 grid-rows-3 gap-x-5.5 gap-y-3 max-md:flex max-md:flex-col">
+          {itemsByColumn.map(({ item: [question, answer], index }) => (
+            <FaqItem
+              key={question}
+              question={question}
+              answer={answer}
+              isOpen={openQuestions.includes(index)}
+              onToggle={() => toggleQuestion(index)}
+            />
+          ))}
+        </div>
+        <Button
+          type="button"
+          onClick={() =>
+            setOpenQuestions(
+              allQuestionsOpen ? [] : faq.items.map((_, index) => index),
+            )
+          }
+          aria-expanded={allQuestionsOpen}
+          className="mx-auto flex w-max max-md:min-h-11 max-md:text-[13px]"
+        >
+          {faq.viewAll}
+        </Button>
       </div>
-      <Button
-        type="button"
-        onClick={() =>
-          setOpenQuestions(
-            allQuestionsOpen ? [] : faq.items.map((_, index) => index),
-          )
-        }
-        aria-expanded={allQuestionsOpen}
-        className="mx-auto flex w-max max-md:min-h-11 max-md:text-[13px]"
-      >
-        {faq.viewAll}
-      </Button>
     </section>
   );
 }
