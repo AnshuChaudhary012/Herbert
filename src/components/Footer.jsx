@@ -1,7 +1,6 @@
 import { Link } from "react-router";
-import Container from "./common/Container";
 import logo from "../assets/images/logo.png";
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from "./common/SVG";
+import SVG from "./common/SVG";
 
 const groups = [
   {
@@ -47,7 +46,7 @@ function FooterLinks({ title, links }) {
 export default function Footer() {
   return (
     <footer className="bg-peach">
-      <Container className="grid grid-cols-[2fr_1fr_1.15fr_1fr] gap-[42px] px-6 pb-9 pt-[45px] max-md:grid-cols-2 max-md:gap-x-[15px] max-md:gap-y-[26px] max-md:pb-[25px] max-md:pt-[34px]">
+      <div className="mx-auto w-[calc(100%-48px)] max-w-[1328px] max-lg:w-[calc(100%-40px)] grid grid-cols-[2fr_1fr_1.15fr_1fr] gap-[42px] px-6 pb-9 pt-[45px] max-md:grid-cols-2 max-md:gap-x-[15px] max-md:gap-y-[26px] max-md:pb-[25px] max-md:pt-[34px]">
         <div className="max-md:col-span-2">
           <Link to="/" className="inline-flex items-center" aria-label="Herbert home">
             <img className="block h-auto max-h-16 w-auto max-w-[208px] object-contain max-md:max-h-[52px] max-md:max-w-[290px]" src={logo} alt="Herbert, your AI German visa guide" />
@@ -64,12 +63,12 @@ export default function Footer() {
         <div className="max-md:col-span-2">
           <h2 className="mb-[18px] mt-1 text-[13px] font-semibold max-md:mb-[10px] max-md:text-sm">Follow Us</h2>
           <div className="flex gap-[10px]" aria-label="Social media">
-            <SocialIcon label="Facebook"><FacebookIcon /></SocialIcon>
-            <SocialIcon label="Instagram"><InstagramIcon /></SocialIcon>
-            <SocialIcon label="LinkedIn"><LinkedInIcon /></SocialIcon>
+            <SocialIcon label="Facebook"><SVG name="facebook" /></SocialIcon>
+            <SocialIcon label="Instagram"><SVG name="instagram" /></SocialIcon>
+            <SocialIcon label="LinkedIn"><SVG name="linkedin" /></SocialIcon>
           </div>
         </div>
-      </Container>
+      </div>
       <div className="border-t border-[#eee2d8] px-3 py-[14px] text-center text-[11px] text-[#6d655e] max-md:text-xs">
         Copyright &copy; 2024 herbert, All rights reserved
       </div>

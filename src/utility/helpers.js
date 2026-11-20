@@ -8,8 +8,8 @@ export const homePageData = {
     action: "Start your conversation with Herbert",
     services: [
       ["Interactive Forms", "Simplify visa application forms", "forms"],
-      ["Document Checklist", "Personalized document preparation", "documents"],
-      ["Language Assistance", "German language skills assessment", "language"],
+      ["Document Checklist", "Personalized document preparation", "document-checklist"],
+      ["Language Assistance", "German language skills assessment", "language-assistance"],
     ],
   },
   features: {

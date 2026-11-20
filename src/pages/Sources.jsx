@@ -4,11 +4,7 @@ import SectionHeading from "../components/sections/SectionHeading";
 import guideLeftImage from "../assets/images/figma/guide-left.png";
 import sourcesGateGroupsImage from "../assets/images/figma/sources-gate-groups.png";
 import sourcesEmploymentSignpostImage from "../assets/images/figma/sources-employment-signpost.png";
-import {
-  VisaDocumentsIcon,
-  VisaProcessIcon,
-  VisaTimeIcon,
-} from "../components/common/SVG";
+import SVG from "../components/common/SVG";
 
 const regulations = [
   "Work permit requirements",
@@ -18,9 +14,9 @@ const regulations = [
 ];
 
 const visaTopics = [
-  { title: "Visa application processes", Icon: VisaProcessIcon },
-  { title: "Required documentation", Icon: VisaDocumentsIcon },
-  { title: "Visa fees and processing times", Icon: VisaTimeIcon },
+  { title: "Visa application processes", icon: "visa-process" },
+  { title: "Required documentation", icon: "visa-documents" },
+  { title: "Visa fees and processing times", icon: "visa-time" },
 ];
 
 function GuideIllustration() {
@@ -50,11 +46,11 @@ function RegulationList({ items, startAt }) {
   );
 }
 
-function VisaTopicCard({ title, Icon }) {
+function VisaTopicCard({ title, icon }) {
   return (
     <article className="grid min-h-32.5 content-center justify-items-center rounded-md bg-white p-4.5 text-center shadow-[0_5px_20px_rgba(37,25,16,0.04)] max-md:min-h-30 max-md:p-3.5">
       <span className="mb-2.5 grid size-8.75 place-items-center rounded-full bg-tag text-brand">
-        <Icon />
+        <SVG name={icon} />
       </span>
       <p className="m-0 max-w-37.5 text-[13px] max-md:text-[13px]">{title}</p>
     </article>

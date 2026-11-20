@@ -2,25 +2,15 @@ import Button from "./common/Button";
 import { homePageData } from "../utility/helpers";
 import guideLeftImage from "../assets/images/figma/guide-left.png";
 import guideRightImage from "../assets/images/figma/guide-right.png";
-import {
-  DocumentChecklistIcon,
-  FormsIcon,
-  LanguageAssistanceIcon,
-} from "./common/SVG";
+import SVG from "./common/SVG";
 
-const serviceIcons = {
-  forms: FormsIcon,
-  documents: DocumentChecklistIcon,
-  language: LanguageAssistanceIcon,
-};
-
-function ServiceCard({ title, description, icon: Icon, featured }) {
+function ServiceCard({ title, description, icon, featured }) {
   return (
     <article
       className={`min-h-37 rounded-[7px] border border-line bg-white/95 px-5 pb-4.5 pt-6 text-center shadow-[0_5px_22px_rgba(37,25,16,0.06)] max-md:min-h-37 max-md:px-2.5 max-md:py-5 ${featured ? "md:-translate-y-3.25" : ""}`}
     >
       <span className="mx-auto mb-2.5 grid size-8.75 place-items-center rounded-full bg-tag text-[18px] font-bold text-brand max-md:mb-3.5 max-md:size-12">
-        <Icon />
+        <SVG name={icon} />
       </span>
       <h2 className="mb-1.75 mt-0 text-sm font-semibold max-md:text-[15px]">
         {title}
@@ -79,7 +69,7 @@ export default function Hero() {
             key={title}
             title={title}
             description={description}
-            icon={serviceIcons[icon]}
+            icon={icon}
             featured={index === 1}
           />
         ))}
