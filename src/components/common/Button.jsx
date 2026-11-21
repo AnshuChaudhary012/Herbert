@@ -8,8 +8,7 @@ export default function Button({
   ...props
 }) {
   const variantClasses = {
-    primary:
-      "border-brand bg-brand text-white hover:bg-paper hover:text-brand",
+    primary: "border-brand bg-brand text-white hover:bg-paper hover:text-brand",
     "outline-light":
       "border-white bg-transparent text-white hover:bg-white hover:text-brand",
     light:

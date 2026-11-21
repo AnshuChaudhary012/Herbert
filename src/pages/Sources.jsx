@@ -1,7 +1,6 @@
 import Button from "../components/common/Button";
 import CtaPanel from "../components/sections/CtaPanel";
 import SectionHeading from "../components/sections/SectionHeading";
-import guideLeftImage from "../assets/images/figma/guide-left.png";
 import sourcesGateGroupsImage from "../assets/images/figma/sources-gate-groups.png";
 import sourcesEmploymentSignpostImage from "../assets/images/figma/sources-employment-signpost.png";
 import SVG from "../components/common/SVG";
@@ -24,8 +23,8 @@ function GuideIllustration() {
     <div className="relative grid min-h-80 place-items-center max-md:min-h-72.5">
       <img
         className="h-90 w-[min(75%,300px)] object-contain object-bottom max-md:h-76.25 max-md:w-55"
-        src={guideLeftImage}
-        alt="Herbert waving hello"
+        src={sourcesGateGroupsImage}
+        alt="People gathered by the Brandenburg Gate"
       />
     </div>
   );

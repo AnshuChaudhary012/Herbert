@@ -1,7 +1,6 @@
 import Button from "../common/Button";
 import SectionHeading from "./SectionHeading";
 import { homePageData } from "../../utility/helpers";
-import teamMobileImage from "../../assets/images/figma/guide-left.png";
 import teamGroupsImage from "../../assets/images/figma/team-groups.png";
 
 export default function TeamSection() {
@@ -33,8 +32,8 @@ export default function TeamSection() {
           />
           <img
             className="block h-75 max-h-80 w-[78%] object-contain md:hidden"
-            src={teamMobileImage}
-            alt="Herbert waving hello"
+            src={teamGroupsImage}
+            alt="Graduates, a family and medical professionals"
           />
         </div>
         <div className="self-start md:col-start-1 md:row-start-2">

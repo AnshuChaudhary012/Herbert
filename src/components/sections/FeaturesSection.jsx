@@ -6,7 +6,10 @@ function FeatureList({ items, startAt = 1 }) {
   return (
     <div className="grid grid-rows-3 content-center gap-8 max-md:contents">
       {items.map((item, index) => (
-        <article className="flex flex-col gap-3.5 text-center max-md:gap-2.5 max-md:text-left" key={item}>
+        <article
+          className="flex flex-col gap-3.5 text-center max-md:gap-2.5 max-md:text-left"
+          key={item}
+        >
           <span className="mx-auto grid size-8.5 place-items-center rounded-full bg-brand text-[15px] font-bold text-white max-md:mx-0">
             {startAt + index}
           </span>
